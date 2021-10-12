@@ -183,8 +183,8 @@ map_phase_class <- ggplot()  +geom_sf(data = wca_final_CH_FINAL, mapping = aes(f
 wca_CHIPC_mar2020_current_mar2020 <- st_make_valid(wca_final_CH_FINAL)
 wca_CHIPC_mar2020_current_mar2020_simple <- rmapshaper::ms_simplify(wca_CHIPC_mar2020_current_mar2020, keep_shapes = TRUE) # simplify polygons
 ### Save it as .gpkg file
-st_write(wca_CHIPC_mar2020_current_mar2020, "data\\geo\\finalized_CHgeofiles\\wca_CHIPC_mar2020_current_mar2020.gpkg", driver="GPKG", append = T) 
-st_write(wca_CHIPC_mar2020_current_mar2020_simple, "data\\geo\\finalized_CHgeofiles\\wca_CHIPC_mar2020_current_mar2020_simple.gpkg", driver="GPKG", append = T) 
+st_write(wca_CHIPC_mar2020_current_mar2020, "data\\geo\\finalized_CHgeofiles\\wca_CHIPC_mar2020_current_mar2020.geojson", driver="GeoJSON", append = T) 
+st_write(wca_CHIPC_mar2020_current_mar2020_simple, "data\\geo\\finalized_CHgeofiles\\wca_CHIPC_mar2020_current_mar2020_simple.geojson", driver="GeoJSON", append = T) 
 
 
 

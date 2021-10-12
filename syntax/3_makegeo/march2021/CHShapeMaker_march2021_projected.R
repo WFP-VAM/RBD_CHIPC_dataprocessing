@@ -202,20 +202,9 @@ mapprojentmar2021_fcs_phase <- wca_final_CH_FINAL %>% ggplot() +geom_sf(aes(fill
 #fix and reduce size
 wca_CHIPC_mar2021_proj_jun2021 <- st_make_valid(wca_final_CH_FINAL)
 wca_CHIPC_mar2021_proj_jun2021_simple <- rmapshaper::ms_simplify(wca_CHIPC_mar2021_proj_jun2021, keep_shapes = TRUE) # simplify polygons
-### Save it as .gpkg file
-st_write(wca_CHIPC_mar2021_proj_jun2021, "data\\geo\\finalized_CHgeofiles\\wca_CHIPC_mar2021_projected_jun2021.gpkg", driver="GPKG", append = T) 
-st_write(wca_CHIPC_mar2021_proj_jun2021_simple, "data\\geo\\finalized_CHgeofiles\\wca_CHIPC_mar2021_projected_jun2021_simple.gpkg", driver="GPKG", append = T) 
+### Save it as .geojson file
+st_write(wca_CHIPC_mar2021_proj_jun2021, "data\\geo\\finalized_CHgeofiles\\wca_CHIPC_mar2021_projected_jun2021.geojson", driver="GeoJSON", append = T) 
+st_write(wca_CHIPC_mar2021_proj_jun2021_simple, "data\\geo\\finalized_CHgeofiles\\wca_CHIPC_mar2021_projected_jun2021_simple.geojson", driver="GeoJSON", append = T) 
 
 
-
-
-##get adm0
-#add Adm0 level to use as outline in viz
-wca_shp0 <- read_sf("data\\geo\\GIS2\\bnd_adm0_gaul_revised vam_cod_20190304.shp") 
-wca_shp0 <- wca_shp0 %>% filter(Adm0_Name != "Sao Tome and Principe" & Adm0_Name != "Cape Verde")
-#fix and reduce size
-wca_shp0all <- st_make_valid(wca_shp0all)
-wca_shp0all  <- rmapshaper::ms_simplify(wca_shp0all , keep_shapes = TRUE) # simplify polygons
-### Save it as .gpkg file
-st_write(wca_shp0all , "data\\geo\\finalized_CHgeofiles\\wca_shp0all.gpkg", driver="GPKG", append = T) 
 
