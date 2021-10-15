@@ -145,6 +145,10 @@ wca_final_CH_FINAL <- wca_final_CH_FINAL %>% dplyr::select(adm0_name, adm0_pcod3
 wca_final_CH_FINAL <- wca_final_CH_FINAL %>% mutate(mapthis = "yes")
 
 
+#create end and start date
+wca_final_CH_FINAL <- wca_final_CH_FINAL %>% mutate(start_date = "2020-10-01 ", end_date = "2020-12-31") 
+wca_final_CH_FINAL <- wca_final_CH_FINAL %>% mutate(start_date = as.Date(start_date), end_date = as.Date(end_date))
+
 ##add map this 
 #testmap
 CH_colors = c("1" = "#c6ffc7", "2" = "#ffe718", "3" = "#e88400", "4" = "#e02d00", "5" = "#5e0803")
@@ -156,7 +160,7 @@ map <- ggplot()  +geom_sf(data = wca_final_CH_FINAL, mapping = aes(fill = as.fac
 wca_CHIPC_nov2020_cur_nov2020 <- st_make_valid(wca_final_CH_FINAL)
 wca_CHIPC_nov2020_cur_nov2020_simple <- rmapshaper::ms_simplify(wca_CHIPC_nov2020_cur_nov2020, keep_shapes = TRUE) # simplify polygons
 ### Save it as .gpkg file
-st_write(wca_CHIPC_nov2020_cur_nov2020, "data\\geo\\finalized_CHgeofiles\\wca_CHIPC_nov2020_current_nov2020.geojson", driver="GeoJSON", append = T) 
+#st_write(wca_CHIPC_nov2020_cur_nov2020, "data\\geo\\finalized_CHgeofiles\\wca_CHIPC_nov2020_current_nov2020.geojson", driver="GeoJSON", append = T) 
 st_write(wca_CHIPC_nov2020_cur_nov2020_simple, "data\\geo\\finalized_CHgeofiles\\wca_CHIPC_nov2020_current_nov2020_simple.geojson", driver="GeoJSON", append = T) 
 
 

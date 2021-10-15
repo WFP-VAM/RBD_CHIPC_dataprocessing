@@ -172,7 +172,9 @@ wca_final_CH_FINAL <- wca_final_CH_FINAL %>% mutate(mapthis = case_when(
   adm1_5_name == "Sokoto-Idps" ~ "no",
   TRUE ~ "yes"))
 
-
+#create end and start date
+wca_final_CH_FINAL <- wca_final_CH_FINAL %>% mutate(start_date = "2021-01-01", end_date = "2021-05-31") 
+ wca_final_CH_FINAL <- wca_final_CH_FINAL %>% mutate(start_date = as.Date(start_date), end_date = as.Date(end_date))
 
 
 ##add map this 
@@ -197,6 +199,6 @@ map_fcs_phase <- wca_final_CH_FINAL %>% ggplot() +geom_sf(aes(fill = as.factor(F
 wca_CHIPC_mar2021_current_mar2021 <- st_make_valid(wca_final_CH_FINAL)
 wca_CHIPC_mar2021_current_mar2021_simple <- rmapshaper::ms_simplify(wca_final_CH_FINAL, keep_shapes = TRUE) # simplify polygons
 ### Save it as .gpkg file
-st_write(wca_CHIPC_mar2021_current_mar2021, "data\\geo\\finalized_CHgeofiles\\wca_CHIPC_mar2021_current_mar2021.geojson", driver="GeoJSON", append = T) 
+#st_write(wca_CHIPC_mar2021_current_mar2021, "data\\geo\\finalized_CHgeofiles\\wca_CHIPC_mar2021_current_mar2021.geojson", driver="GeoJSON", append = T) 
 st_write(wca_CHIPC_mar2021_current_mar2021_simple, "data\\geo\\finalized_CHgeofiles\\wca_CHIPC_mar2021_current_mar2021_simple.geojson", driver="GeoJSON", append = T) 
 

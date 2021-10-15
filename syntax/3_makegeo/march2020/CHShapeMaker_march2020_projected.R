@@ -189,6 +189,12 @@ wca_final_CH_FINAL <- bind_rows(wca_final_CH, wca_final_CH_nga, wca_final_CH_kan
                                                                      Shape_Leng, Shape_Area, Shape_Area,
                                                                      -adm0_gaulcode, -OBJECTID, -usethisperiod)
 
+#create end and start date
+wca_final_CH_FINAL <- wca_final_CH_FINAL %>% mutate(start_date = "2020-06-01", end_date = "2020-09-30") 
+wca_final_CH_FINAL <- wca_final_CH_FINAL %>% mutate(start_date = as.Date(start_date), end_date = as.Date(end_date))
+
+
+
 
 #visualize map to make sure work was done right -
 CH_colors = c("1" = "#c6ffc7", "2" = "#ffe718", "3" = "#e88400", "4" = "#e02d00", "5" = "#5e0803")
@@ -199,7 +205,7 @@ map <- ggplot()  +geom_sf(data = wca_final_CH_FINAL, mapping = aes(fill = as.fac
 wca_CHIPC_mar2020_projected_jun2020 <- st_make_valid(wca_final_CH_FINAL)
 wca_CHIPC_mar2020_projected_jun2020_simple <- rmapshaper::ms_simplify(wca_CHIPC_mar2020_projected_jun2020, keep_shapes = TRUE) # simplify polygons
 ### Save it as .gpkg file
-st_write(wca_CHIPC_mar2020_projected_jun2020, "data\\geo\\finalized_CHgeofiles\\wca_CHIPC_mar2020_projected_jun2020.geojson", driver="GeoJSON", append = T) 
+#st_write(wca_CHIPC_mar2020_projected_jun2020, "data\\geo\\finalized_CHgeofiles\\wca_CHIPC_mar2020_projected_jun2020.geojson", driver="GeoJSON", append = T) 
 st_write(wca_CHIPC_mar2020_projected_jun2020_simple, "data\\geo\\finalized_CHgeofiles\\wca_CHIPC_mar2020_projected_jun2020_simple.geojson", driver="GeoJSON", append = T) 
 
 
