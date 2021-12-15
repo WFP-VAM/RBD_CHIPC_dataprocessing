@@ -1,0 +1,6 @@
+adm0_name,adm1_name,population,phase_class,phase1,phase2,phase3,phase4,phase5,phase35,foodconsumption_phase,livelihoods_phase,nutrition_phase,mortality_phase,FCG_Poor,FCG_Borderline,FCG_Acceptable,FCG_finalphase,HDDS_Phase1,HDDS_Phase2,HDDS_Phase3,HDDS_Phase4,HDDS_Phase5,HDDS_finalphase,HHS_Phase1,HHS_Phase2,HHS_Phase3,HHS_Phase4,HHS_Phase5,HHS_finalphase,LhHCSCat_NoStrategies,LhHCSCat_StressStrategies,LhHCSCat_CrisisStategies,LhHCSCat_EmergencyStrategies,LhHCSCat_finalphase,rCSI_Phase1,rCSI_Phase2,rCSI_Phase3,rCSI_finalphase
+Togo,Centrale,792850,1,689779.5,79285,23785.5,0,0,23785.5,1,1,1,NA,9,19,72,2,71,25,4,0,0,2,94,3,3,0,0,1,74.6,11.5,12.2,1.7,2,73,22,5,2
+Togo,Kara,988180,1,800425.8,138345.2,49409,0,0,49409,1,2,1,NA,14,38,48,3,42,40,18,0,0,2,84,6,10,0,0,1,50.1,16.8,29.3,3.7,3,46,40,14,2
+Togo,Maritime,1295700,2,816291,323925,155484,0,0,155484,2,2,1,NA,5,28,67,2,41,34,25,0,0,3,47,30,23,0,0,3,31,1.9,63.8,3.3,3,36,38,26,3
+Togo,Plateaux,1759660,2,1266955.2,404721.8,87983,0,0,87983,2,2,1,NA,12,24,64,3,46,34,20,0,0,3,65,21,13,0,1,2,43.5,7.2,46,3.3,3,25,34,41,3
+Togo,Savanes,1049330,2,713544.4,241345.9,94439.7,0,0,94439.7,2,2,1,NA,28,27,45,4,22,57,21,0,0,3,69,11,20,0,0,3,54.7,15.6,23.9,5.8,3,44,40,16,2

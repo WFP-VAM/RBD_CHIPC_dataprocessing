@@ -1,0 +1,15 @@
+adm0_name,adm1_name,adm2_name,population,phase_class,phase1,phase2,phase3,phase4,phase5,phase35,foodconsumption_phase,livelihoods_phase,nutrition_phase,mortality_phase
+Sierra Leone,Eastern,Kailahun,625500,3,212670,237690,168885,6255,0,175140,3,3,2,NA
+Sierra Leone,Eastern,Kenema,685734,3,212578,240007,205720,27429,0,233150,3,4,2,NA
+Sierra Leone,Northern,Bombali,692843,3,256352,221710,193996,20785,0,214781,3,4,1,NA
+Sierra Leone,Northern,Kambia,394631,2,201262,142067,51302,0,0,51302,3,3,1,NA
+Sierra Leone,Northern,Koinadugu,467616,2,261865,149637,56114,0,0,56114,3,3,1,NA
+Sierra Leone,Northern,Port Loko,702935,3,281174,210881,196822,14059,0,210881,3,4,2,NA
+Sierra Leone,Southern,Bonthe,224304,3,85236,78506,58319,2243,0,60562,3,4,2,NA
+Sierra Leone,Southern,Bo,659706,3,270479,230897,158329,0,0,158329,3,4,1,NA
+Sierra Leone,Southern,Moyamba,365213,3,146085,116868,94955,7304,0,102260,3,3,2,NA
+Sierra Leone,Southern,Pujehun,397170,3,146953,127094,111208,11915,0,123123,3,4,2,NA
+Sierra Leone,Western,Western Area Urban,1200230,2,720138,384074,96018,0,0,96018,2,3,1,NA
+Sierra Leone,Eastern,Kono,568249,2,227300,238665,102285,0,0,102285,2,4,1,NA
+Sierra Leone,Northern,Tonkolili,607054,2,291386,218539,97129,0,0,97129,2,2,1,NA
+Sierra Leone,Western,Western Area Rural,509133,2,198562,229110,81461,0,0,81461,2,3,1,NA

@@ -1,0 +1,6 @@
+adm0_name,adm1_name,population,phase_class,phase1,phase2,phase3,phase4,phase5,phase35,foodconsumption_phase,livelihoods_phase,nutrition_phase,mortality_phase
+Togo,Centrale,792850,1,650137,103070.5,39642.5,0,0,39642.5,1,1,1,NA
+Togo,Kara,988180,2,662080.6,247045,79054.4,0,0,79054.4,2,2,1,NA
+Togo,Maritime,1295700,2,932904,259140,103656,0,0,103656,2,2,1,NA
+Togo,Plateaux,1759660,2,1161375.6,475108.2,123176.2,0,0,123176.2,2,2,1,NA
+Togo,Savanes,1049330,2,598118.1,314799,136412.9,0,0,136412.9,2,2,1,NA

@@ -1,0 +1,56 @@
+adm0_name,adm1_name,adm2_name,population,phase_class,phase1,phase2,phase3,phase4,phase5,phase35,foodconsumption_phase,livelihoods_phase,nutrition_phase,mortality_phase
+Ghana,Upper East,Bolgatanga East,35168,2,24618,8792,1758,0,0,1758,2,2,NA,NA
+Ghana,Upper East,Bongo,105206,2,75748,22093,7364,0,0,7364,2,3,NA,NA
+Ghana,Upper East,Nabdam,42126,2,32437,8425,1264,0,0,1264,1,2,NA,NA
+Ghana,Upper East,Talensi,101132,1,85962,15170,0,0,0,0,1,2,NA,NA
+Ghana,Ahafo,Asunafo South,120976,1,108878,12098,0,0,0,0,1,1,NA,NA
+Ghana,Ahafo,Asunafo North,157870,1,138926,15787,3157,0,0,3157,1,2,NA,NA
+Ghana,Ahafo,Asutifi North,66141,1,58204,3968,2646,1323,0,3968,1,1,NA,NA
+Ghana,Ahafo,Asutifi South,67763,1,63697,3388,678,0,0,678,1,1,NA,NA
+Ghana,Ahafo,Tano North,101305,1,94214,6078,1013,0,0,1013,1,2,NA,NA
+Ghana,Ahafo,Tano South,98994,1,95034,2970,990,0,0,990,1,2,NA,NA
+Ghana,Ashanti,NA,5924498,1,5569028,296225,59245,0,0,59245,1,2,NA,NA
+Ghana,Bono East,NA,1133768,1,1077080,56688,0,0,0,0,1,1,NA,NA
+Ghana,Bono,NA,1168807,1,1098679,58440,11688,0,0,11688,1,1,NA,NA
+Ghana,Central,NA,2605492,1,2318888,208439,78165,0,0,78165,1,1,NA,NA
+Ghana,Eastern,NA,3318853,1,2854214,431451,33189,0,0,33189,1,1,NA,NA
+Ghana,Greater Accra,NA,5055883,1,4752530,252794,50559,0,0,50559,1,1,NA,NA
+Ghana,North East,Bunkpurugu -Nakpanduri,88365,1,75110,8837,4418,0,0,4418,1,1,NA,NA
+Ghana,North East,Chereponi,67609,2,52735,13522,1352,0,0,1352,1,2,NA,NA
+Ghana,North East,East Mamprusi,153225,1,130241,18387,4597,0,0,4597,1,1,NA,NA
+Ghana,North East,Mamprugu-Moagduri,59378,2,42752,11876,4750,0,0,4750,1,2,NA,NA
+Ghana,North East,West Mamprusi,153361,2,115021,33739,4601,0,0,4601,2,2,NA,NA
+Ghana,North East,Yunyoo-Nasuan,66862,2,48141,16716,2006,0,0,2006,1,2,NA,NA
+Ghana,Northern,Gushiegu,140368,2,98258,28074,14037,0,0,14037,2,2,NA,NA
+Ghana,Northern,Karaga,98046,1,86280,11766,0,0,0,0,2,1,NA,NA
+Ghana,Northern,Kpandai,137249,1,119407,13725,4117,0,0,4117,1,1,NA,NA
+Ghana,Northern,Kumbungu,49626,2,33249,11414,4963,0,0,4963,1,2,NA,NA
+Ghana,Northern,Mion,103202,1,88754,5160,9288,0,0,9288,1,1,NA,NA
+Ghana,Northern,Nanton,58754,1,51704,5875,1175,0,0,1175,2,1,NA,NA
+Ghana,Northern,Nanumba North,178608,1,150031,25005,3572,0,0,3572,1,2,NA,NA
+Ghana,Northern,Nanumba South,117895,2,91958,23579,2358,0,0,2358,1,2,NA,NA
+Ghana,Northern,Saboba,82891,1,77089,4145,1658,0,0,1658,1,1,NA,NA
+Ghana,Northern,Sagnarigu,186796,1,177456,7472,1868,0,0,1868,1,1,NA,NA
+Ghana,Northern,Savelugu,116975,1,111126,5849,0,0,0,0,1,1,NA,NA
+Ghana,Northern,Tamale,281619,1,261906,14081,5632,0,0,5632,1,1,NA,NA
+Ghana,Northern,Tatale-Sangule,75738,2,53017,15148,7574,0,0,7574,2,1,NA,NA
+Ghana,Northern,Tolon,92072,1,87468,4604,0,0,0,0,1,1,NA,NA
+Ghana,Northern,Yendi,148567,1,130739,14857,2971,0,0,2971,1,1,NA,NA
+Ghana,Northern,Zabzugu,80507,1,76482,4025,0,0,0,0,1,1,NA,NA
+Ghana,Oti,NA,759799,1,668623,75980,15196,0,0,15196,1,1,NA,NA
+Ghana,Savannah,NA,594712,1,529294,59471,5947,0,0,5947,1,1,NA,NA
+Ghana,Upper East,Bawku Municipal,122641,1,101792,18396,2453,0,0,2453,1,2,NA,NA
+Ghana,Upper East,Bawku West,117036,1,99481,15215,2341,0,0,2341,1,2,NA,NA
+Ghana,Upper East,Binduri,76641,2,59014,15328,2299,0,0,2299,2,1,NA,NA
+Ghana,Upper East,Bolgatanga Municipal,128548,1,111837,12855,3856,0,0,3856,1,1,NA,NA
+Ghana,Upper East,Builsa North,70321,1,59070,10548,703,0,0,703,1,2,NA,NA
+Ghana,Upper East,Builsa South,45469,1,38194,6820,455,0,0,455,1,1,NA,NA
+Ghana,Upper East,Garu,72634,2,55928,15253,1453,0,0,1453,2,2,NA,NA
+Ghana,Upper East,Kasena-Nankana West,87987,2,63351,17597,7039,0,0,7039,2,2,NA,NA
+Ghana,Upper East,Kasena-Nankana,136875,2,105394,27375,4106,0,0,4106,2,2,NA,NA
+Ghana,Upper East,Pusiga,71779,1,62448,7178,2153,0,0,2153,1,1,NA,NA
+Ghana,Upper East,Tempane,89155,2,64192,16048,8916,0,0,8916,2,2,NA,NA
+Ghana,Upper West,NA,868479,1,816370,43424,8685,0,0,8685,1,1,NA,NA
+Ghana,Volta,NA,1907679,1,1812295,95384,0,0,0,0,1,1,NA,NA
+Ghana,Western North,NA,949094,1,873166,66437,9491,0,0,9491,1,1,NA,NA
+Ghana,Western,NA,2214660,1,2103927,110733,0,0,0,0,1,1,NA,NA

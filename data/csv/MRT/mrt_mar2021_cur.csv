@@ -1,0 +1,49 @@
+adm0_name,adm1_name,adm2_name,population,phase_class,phase1,phase2,phase3,phase4,phase5,phase35,foodconsumption_phase,livelihoods_phase,nutrition_phase,mortality_phase,FCG_Poor,FCG_Borderline,FCG_Acceptable,FCG_finalphase,HDDS_Phase1,HDDS_Phase2,HDDS_Phase3,HDDS_Phase4,HDDS_Phase5,HDDS_finalphase,HHS_Phase1,HHS_Phase2,HHS_Phase3,HHS_Phase4,HHS_Phase5,HHS_finalphase,LhHCSCat_NoStrategies,LhHCSCat_StressStrategies,LhHCSCat_CrisisStategies,LhHCSCat_EmergencyStrategies,LhHCSCat_finalphase,rCSI_Phase1,rCSI_Phase2,rCSI_Phase3,rCSI_finalphase,adm2
+Mauritania,Adrar,Aoujeft,12635,1,10361,2148,126,0,0,126,1,2,1,NA,0,15.6,84.4,1,96.4,3.2,0.4,0,0,1,NA,NA,NA,NA,NA,NA,69.2,28.8,1.6,0.4,2,100,0,0,1,Aoujeft
+Mauritania,Adrar,Atar,37794,1,31747,5669,378,0,0,378,1,2,1,NA,0,15.6,84.4,1,96.4,3.2,0.4,0,0,1,NA,NA,NA,NA,NA,NA,69.2,28.8,1.6,0.4,2,100,0,0,1,Atar
+Mauritania,Adrar,Chinguity,6621,1,5363,1059,199,0,0,199,1,2,1,NA,0,15.6,84.4,1,96.4,3.2,0.4,0,0,1,NA,NA,NA,NA,NA,NA,69.2,28.8,1.6,0.4,2,100,0,0,1,Chinguity
+Mauritania,Adrar,Ouadane,3862,1,3206,541,116,0,0,116,1,2,1,NA,0,15.6,84.4,1,96.4,3.2,0.4,0,0,1,NA,NA,NA,NA,NA,NA,69.2,28.8,1.6,0.4,2,100,0,0,1,Ouadane
+Mauritania,Assaba,Barkeol,97071,2,66979,24268,5824,0,0,5824,1,2,2,NA,0.4,13.6,86,1,20,52.4,25.6,1.6,0.4,3,NA,NA,NA,NA,NA,NA,20.8,76.8,1.2,1.2,2,99.6,0.4,0,1,Barkeol
+Mauritania,Assaba,Boumdeid,9618,2,6925,2405,289,0,0,289,1,2,2,NA,0.4,13.6,86,1,20,52.4,25.6,1.6,0.4,3,NA,NA,NA,NA,NA,NA,20.8,76.8,1.2,1.2,2,99.6,0.4,0,1,Boumdeid
+Mauritania,Assaba,Guerrou,54512,2,35433,13628,5451,0,0,5451,1,2,2,NA,0.4,13.6,86,1,20,52.4,25.6,1.6,0.4,3,NA,NA,NA,NA,NA,NA,20.8,76.8,1.2,1.2,2,99.6,0.4,0,1,Guerrou
+Mauritania,Assaba,Kankossa,100222,2,69153,23051,8018,0,0,8018,1,2,2,NA,0.4,13.6,86,1,20,52.4,25.6,1.6,0.4,3,NA,NA,NA,NA,NA,NA,20.8,76.8,1.2,1.2,2,99.6,0.4,0,1,Kankossa
+Mauritania,Assaba,Kiffa,134505,2,94153,32281,8070,0,0,8070,1,2,2,NA,0.4,13.6,86,1,20,52.4,25.6,1.6,0.4,3,NA,NA,NA,NA,NA,NA,20.8,76.8,1.2,1.2,2,99.6,0.4,0,1,Kiffa
+Mauritania,Brakna,Aleg,107871,2,81982,22653,3236,0,0,3236,1,2,2,NA,0.4,3.6,96,1,71.5,18.5,9.2,0.8,0,2,NA,NA,NA,NA,NA,NA,75.1,21.3,3.2,0.4,2,100,0,0,1,Aleg
+Mauritania,Brakna,Bababe,39584,2,29292,8709,1583,0,0,1583,1,2,2,NA,0.4,3.6,96,1,71.5,18.5,9.2,0.8,0,2,NA,NA,NA,NA,NA,NA,75.1,21.3,3.2,0.4,2,100,0,0,1,Bababe
+Mauritania,Brakna,Boghe,76767,2,56808,16121,3838,0,0,3838,1,2,3,NA,0.4,3.6,96,1,71.5,18.5,9.2,0.8,0,2,NA,NA,NA,NA,NA,NA,75.1,21.3,3.2,0.4,2,100,0,0,1,Boghe
+Mauritania,Brakna,M'bagne,46331,2,35212,8803,2317,0,0,2317,1,2,2,NA,0.4,3.6,96,1,71.5,18.5,9.2,0.8,0,2,NA,NA,NA,NA,NA,NA,75.1,21.3,3.2,0.4,2,100,0,0,1,M'bagne
+Mauritania,Brakna,Maghta Lahjar,61285,2,46576,11644,3064,0,0,3064,1,2,2,NA,0.4,3.6,96,1,71.5,18.5,9.2,0.8,0,2,NA,NA,NA,NA,NA,NA,75.1,21.3,3.2,0.4,2,100,0,0,1,Maghta Lahjar
+Mauritania,Dakhlet-Nouadhibou,Nouadhibou,153757,1,127618,18451,7688,0,0,7688,1,2,1,NA,1.2,12,86.7,1,65.9,21.3,11.2,1.6,0,2,NA,NA,NA,NA,NA,NA,46.2,50.6,1.6,1.6,2,98.4,1.6,0,1,Nouadhibou
+Mauritania,Gorgol,Kaedi,138487,2,94171,30467,13849,0,0,13849,2,2,2,NA,4,28.2,67.7,1,40.7,22.6,19,17.7,0,3,NA,NA,NA,NA,NA,NA,14.9,78.2,4.4,2.4,2,100,0,0,1,Kaedi
+Mauritania,Gorgol,Maghama,77892,1,64651,9347,3895,0,0,3895,1,2,2,NA,4,28.2,67.7,1,40.7,22.6,19,17.7,0,3,NA,NA,NA,NA,NA,NA,14.9,78.2,4.4,2.4,2,100,0,0,1,Maghama
+Mauritania,Gorgol,M'bout,116616,2,69970,25656,20991,0,0,20991,1,2,2,NA,4,28.2,67.7,1,40.7,22.6,19,17.7,0,3,NA,NA,NA,NA,NA,NA,14.9,78.2,4.4,2.4,2,100,0,0,1,M'bout
+Mauritania,Gorgol,Monguel,49176,2,29506,11310,8360,0,0,8360,1,2,2,NA,4,28.2,67.7,1,40.7,22.6,19,17.7,0,3,NA,NA,NA,NA,NA,NA,14.9,78.2,4.4,2.4,2,100,0,0,1,Monguel
+Mauritania,Guidimakha,Ould Yenge,82688,1,66977,14057,1654,0,0,1654,1,1,2,NA,1.6,13.1,85.3,1,52.6,22.3,18.3,6.8,0,3,NA,NA,NA,NA,NA,NA,90.4,7.6,0.8,1.2,1,98.8,1.2,0,1,Ould Yenge
+Mauritania,Guidimakha,Selibaby,240399,1,194723,40868,4808,0,0,4808,1,1,2,NA,1.6,13.1,85.3,1,52.6,22.3,18.3,6.8,0,3,NA,NA,NA,NA,NA,NA,90.4,7.6,0.8,1.2,1,98.8,1.2,0,1,Selibaby
+Mauritania,Hodh Ech Chargi,Amourj,115924,1,95057,15070,5796,0,0,5796,1,1,2,NA,0.8,14.2,85,1,45.4,43.7,10,0.8,0,2,NA,NA,NA,NA,NA,NA,92.1,5,2.5,0.4,1,96.7,0.4,2.9,1,Amourj
+Mauritania,Hodh Ech Chargi,Bassikounou,16043,1,12995,2246,802,0,0,802,1,1,2,NA,0.8,14.2,85,1,45.4,43.7,10,0.8,0,2,NA,NA,NA,NA,NA,NA,92.1,5,2.5,0.4,1,96.7,0.4,2.9,1,Bassikounou
+Mauritania,Hodh Ech Chargi,Djigueni,73083,1,59197,9501,4385,0,0,4385,1,1,2,NA,0.8,14.2,85,1,45.4,43.7,10,0.8,0,2,NA,NA,NA,NA,NA,NA,92.1,5,2.5,0.4,1,96.7,0.4,2.9,1,Djigueni
+Mauritania,Hodh Ech Chargi,N'beikett Lahwach,10862,1,8907,1086,869,0,0,869,1,1,2,NA,0.8,14.2,85,1,45.4,43.7,10,0.8,0,2,NA,NA,NA,NA,NA,NA,92.1,5,2.5,0.4,1,96.7,0.4,2.9,1,N'beikett Lahwach
+Mauritania,Hodh Ech Chargi,Nema,106716,1,86440,13873,6403,0,0,6403,1,1,2,NA,0.8,14.2,85,1,45.4,43.7,10,0.8,0,2,NA,NA,NA,NA,NA,NA,92.1,5,2.5,0.4,1,96.7,0.4,2.9,1,Nema
+Mauritania,Hodh Ech Chargi,Oualata,108412,1,88898,14094,5421,0,0,5421,1,1,2,NA,0.8,14.2,85,1,45.4,43.7,10,0.8,0,2,NA,NA,NA,NA,NA,NA,92.1,5,2.5,0.4,1,96.7,0.4,2.9,1,Oualata
+Mauritania,Hodh Ech Chargi,Timbedra,96934,1,78516,9693,8724,0,0,8724,1,1,2,NA,0.8,14.2,85,1,45.4,43.7,10,0.8,0,2,NA,NA,NA,NA,NA,NA,92.1,5,2.5,0.4,1,96.7,0.4,2.9,1,Timbedra
+Mauritania,Hodh El Gharbi,Aioun,74311,1,60192,9660,4459,0,0,4459,1,1,2,NA,1.6,4,94.4,1,78.4,17.6,3.6,0.4,0,2,NA,NA,NA,NA,NA,NA,89.6,8.4,0.8,1.2,1,99.2,0.8,0,1,Aioun
+Mauritania,Hodh El Gharbi,Kobeni,105583,1,86578,17949,1056,0,0,1056,1,1,2,NA,1.6,4,94.4,1,78.4,17.6,3.6,0.4,0,2,NA,NA,NA,NA,NA,NA,89.6,8.4,0.8,1.2,1,99.2,0.8,0,1,Kobeni
+Mauritania,Hodh El Gharbi,Tamchekett,44440,1,35552,7110,1778,0,0,1778,1,1,2,NA,1.6,4,94.4,1,78.4,17.6,3.6,0.4,0,2,NA,NA,NA,NA,NA,NA,89.6,8.4,0.8,1.2,1,99.2,0.8,0,1,Tamchekett
+Mauritania,Hodh El Gharbi,Tintane,110685,1,89655,15496,5534,0,0,5534,1,1,2,NA,1.6,4,94.4,1,78.4,17.6,3.6,0.4,0,2,NA,NA,NA,NA,NA,NA,89.6,8.4,0.8,1.2,1,99.2,0.8,0,1,Tintane
+Mauritania,Inchiri,Akjoujt,26129,2,20119,4442,1568,0,0,1568,2,2,1,NA,5.6,14.8,79.6,2,55.6,29.6,5.6,8.8,0.4,2,NA,NA,NA,NA,NA,NA,76.4,22.4,0.4,0.8,2,100,0,0,1,Akjoujt
+Mauritania,Nouakchott,Nouakchott Nord,490103,1,396984,88219,4901,0,0,4901,1,2,1,NA,0,1.2,98.8,1,94,5.2,0.4,0.4,0,1,NA,NA,NA,NA,NA,NA,45.6,48,5.2,1.2,2,80,16,4,2,Nouakchott Nord
+Mauritania,Nouakchott,Nouakchott Ouest,221486,1,181619,31008,8859,0,0,8859,1,1,1,NA,0,0.8,99.2,1,96,3.6,0.4,0,0,1,NA,NA,NA,NA,NA,NA,46,39.5,13.3,1.2,2,100,0,0,1,Nouakchott Ouest
+Mauritania,Nouakchott,Nouakchott Sud,568593,1,460561,79603,28430,0,0,28430,1,1,1,NA,1.2,9.6,89.2,1,91.6,6.4,0.8,0,1.2,1,NA,NA,NA,NA,NA,NA,34,61.2,4,0.8,2,100,0,0,1,Nouakchott Sud
+Mauritania,Tagant,Moudjeria,43971,2,29900,10553,3518,0,0,3518,2,2,2,NA,6.8,32.8,60.4,2,13.2,21.6,26.8,36.4,2,4,NA,NA,NA,NA,NA,NA,45.2,46.4,5.6,2.8,2,96.4,2,1.6,1,Moudjeria
+Mauritania,Tagant,Tichitt,4582,2,3024,1100,458,0,0,458,2,2,2,NA,6.8,32.8,60.4,2,13.2,21.6,26.8,36.4,2,4,NA,NA,NA,NA,NA,NA,45.2,46.4,5.6,2.8,2,96.4,2,1.6,1,Tichitt
+Mauritania,Tagant,Tidjikja,36741,2,23514,8818,4409,0,0,4409,2,2,2,NA,6.8,32.8,60.4,2,13.2,21.6,26.8,36.4,2,4,NA,NA,NA,NA,NA,NA,45.2,46.4,5.6,2.8,2,96.4,2,1.6,1,Tidjikja
+Mauritania,Tiris-Zemmour,Bir Mogrein,4218,2,2741,844,633,0,0,633,2,2,1,NA,5.6,14.8,79.6,2,55.6,29.6,5.6,8.8,0.4,2,NA,NA,NA,NA,NA,NA,76.4,22.4,0.4,0.8,2,100,0,0,1,Bir Mogrein
+Mauritania,Tiris-Zemmour,F'derik,5103,2,3572,867,663,0,0,663,2,2,1,NA,5.6,14.8,79.6,2,55.6,29.6,5.6,8.8,0.4,2,NA,NA,NA,NA,NA,NA,76.4,22.4,0.4,0.8,2,100,0,0,1,F'derik
+Mauritania,Tiris-Zemmour,Zoueratt,48322,2,32859,9664,5799,0,0,5799,2,2,1,NA,5.6,14.8,79.6,2,55.6,29.6,5.6,8.8,0.4,2,NA,NA,NA,NA,NA,NA,76.4,22.4,0.4,0.8,2,100,0,0,1,Zoueratt
+Mauritania,Trarza,Boutilimit,72109,1,58409,12259,1442,0,0,1442,1,2,1,NA,0.4,3.2,96.4,1,59.6,21.2,18.4,0.4,0.4,2,NA,NA,NA,NA,NA,NA,36.8,59.6,1.6,2,2,100,0,0,1,Boutilimit
+Mauritania,Trarza,Keur-Macene,30536,1,25039,4580,916,0,0,916,1,1,1,NA,0.4,3.2,96.4,1,59.6,21.2,18.4,0.4,0.4,2,NA,NA,NA,NA,NA,NA,36.8,59.6,1.6,2,2,100,0,0,1,Keur-Macene
+Mauritania,Trarza,Mederdra,34735,1,28483,5210,1042,0,0,1042,1,2,1,NA,0.4,3.2,96.4,1,59.6,21.2,18.4,0.4,0.4,2,NA,NA,NA,NA,NA,NA,36.8,59.6,1.6,2,2,100,0,0,1,Mederdra
+Mauritania,Trarza,Ouad Naga,27042,1,22445,3786,811,0,0,811,1,2,1,NA,0.4,3.2,96.4,1,59.6,21.2,18.4,0.4,0.4,2,NA,NA,NA,NA,NA,NA,36.8,59.6,1.6,2,2,100,0,0,1,Ouad Naga
+Mauritania,Trarza,R'kiz,80968,1,66394,12145,2429,0,0,2429,1,2,1,NA,0.4,3.2,96.4,1,59.6,21.2,18.4,0.4,0.4,2,NA,NA,NA,NA,NA,NA,36.8,59.6,1.6,2,2,100,0,0,1,R'kiz
+Mauritania,Trarza,Rosso,65871,1,54673,9222,1976,0,0,1976,1,2,1,NA,0.4,3.2,96.4,1,59.6,21.2,18.4,0.4,0.4,2,NA,NA,NA,NA,NA,NA,36.8,59.6,1.6,2,2,100,0,0,1,Rosso

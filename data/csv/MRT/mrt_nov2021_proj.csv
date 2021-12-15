@@ -1,0 +1,49 @@
+adm0_name,adm1_name,adm2_name,population,phase_class,phase1,phase2,phase3,phase4,phase5,phase35,foodconsumption_phase,livelihoods_phase,nutrition_phase,mortality_phase
+Mauritania,Adrar,Aoujeft,12621,2,6941,3786,1893,0,0,1893,2,2,2,NA
+Mauritania,Adrar,Atar,37751,3,19630,9438,8683,0,0,8683,3,3,3,NA
+Mauritania,Adrar,Chinguity,6614,2,3241,2315,1058,0,0,1058,2,3,2,NA
+Mauritania,Adrar,Ouadane,3858,2,2430,964,463,0,0,463,2,3,2,NA
+Mauritania,Assaba,Barkeol,99390,3,36774,39756,20872,1988,0,22860,3,2,4,NA
+Mauritania,Assaba,Boumdeid,9848,3,4136,3447,2167,98,0,2265,3,1,4,NA
+Mauritania,Assaba,Guerrou,55815,3,20093,22326,12837,558,0,13395,3,2,4,NA
+Mauritania,Assaba,Kankossa,102617,3,49256,27707,24628,1026,0,25654,3,1,4,NA
+Mauritania,Assaba,Kiffa,137719,3,45447,59219,31675,1377,0,33053,3,2,4,NA
+Mauritania,Brakna,Aleg,108817,3,58761,27204,21763,1088,0,22852,3,2,4,NA
+Mauritania,Brakna,Bababe,39932,3,17969,11980,9584,399,0,9983,3,2,4,NA
+Mauritania,Brakna,Boghe,77441,3,40269,18586,17037,1549,0,18586,3,2,4,NA
+Mauritania,Brakna,M'bagne,46738,3,22434,14021,9815,467,0,10282,3,2,4,NA
+Mauritania,Brakna,Maghta Lahjar,61822,3,32766,15456,12364,1236,0,13601,3,2,4,NA
+Mauritania,Dakhlet Nouadhibou,Nouadhibou,157821,2,119944,33142,4735,0,0,4735,2,1,1,NA
+Mauritania,Gorgol,Kaedi,140766,2,84460,39414,14077,2815,0,16892,2,1,3,NA
+Mauritania,Gorgol,M'bout,118535,3,62824,26078,28448,1185,0,29634,3,4,3,NA
+Mauritania,Gorgol,Maghama,79174,3,38004,19002,19794,2375,0,22169,3,3,3,NA
+Mauritania,Gorgol,Monguel,49985,3,26992,10997,10497,1500,0,11996,3,3,3,NA
+Mauritania,Guidimakha,Ould Yenge,84626,3,38928,24541,19464,1693,0,21156,3,2,4,NA
+Mauritania,Guidimakha,Selibaby,246032,3,108254,86111,46746,4921,0,51667,3,2,4,NA
+Mauritania,Hodh Chargui,D'har,11133,3,5678,3006,2338,111,0,2449,3,3,3,NA
+Mauritania,Hodh Chargui,Oualata,16443,3,6577,6084,3453,329,0,3782,3,3,3,NA
+Mauritania,Hodh Ech Chargi,Amourj,118813,3,46337,43961,27327,1188,0,28515,3,2,3,NA
+Mauritania,Hodh Ech Chargi,Bassikounou,111115,3,33334,50002,26668,1111,0,27779,3,2,3,NA
+Mauritania,Hodh Ech Chargi,Djigueni,74905,3,22471,33707,16479,2247,0,18726,3,3,3,NA
+Mauritania,Hodh Ech Chargi,Nema,109376,3,55782,30625,22969,0,0,22969,3,3,3,NA
+Mauritania,Hodh Ech Chargi,Timbedra,99350,3,37753,39740,21857,0,0,21857,3,3,3,NA
+Mauritania,Hodh El Gharbi,Aioun,75544,3,25685,28707,17375,3777,0,21152,3,4,4,NA
+Mauritania,Hodh El Gharbi,Kobeni,107335,3,55814,26834,24687,0,0,24687,3,3,3,NA
+Mauritania,Hodh El Gharbi,Tamchekett,45177,3,21685,13553,9487,452,0,9939,3,1,4,NA
+Mauritania,Hodh El Gharbi,Tintane,112522,3,52885,33756,25880,0,0,25880,3,1,3,NA
+Mauritania,Inchiri,Akjoujt,27028,2,15136,6757,5135,0,0,5135,2,3,2,NA
+Mauritania,Nouakchott,Teyarett,507132,1,415848,76070,15214,0,0,15214,1,1,2,NA
+Mauritania,Nouakchott,Tevraghzeina,229182,1,203972,25210,0,0,0,0,1,1,2,NA
+Mauritania,Nouakchott,Riad,588349,2,411844,147087,29417,0,0,29417,2,2,2,NA
+Mauritania,Tagant,Moudjeria,44315,3,19055,15510,9749,0,0,9749,3,2,3,NA
+Mauritania,Tagant,Tichitt,4618,3,2355,1154,1108,0,0,1108,3,2,3,NA
+Mauritania,Tagant,Tidjikja,37028,3,19255,9257,8517,0,0,8517,3,3,3,NA
+Mauritania,Tiris-Zemmour,Bir Mogrein,4263,3,1876,1279,895,213,0,1108,3,4,3,NA
+Mauritania,Tiris-Zemmour,F'derik,5158,3,1651,2270,1186,52,0,1238,3,3,2,NA
+Mauritania,Tiris-Zemmour,Zoueratt,48846,3,18561,19538,10746,0,0,10746,3,3,3,NA
+Mauritania,Trarza,Boutilimit,73321,2,36660,25662,10998,0,0,10998,2,3,2,NA
+Mauritania,Trarza,Keur-Macene,31049,2,19250,8694,3105,0,0,3105,2,1,3,NA
+Mauritania,Trarza,Mederdra,35318,1,29314,4591,1413,0,0,1413,1,1,2,NA
+Mauritania,Trarza,Ouad Naga,27496,2,14848,9074,3574,0,0,3574,2,3,2,NA
+Mauritania,Trarza,R'kiz,82328,2,57629,20582,4116,0,0,4116,1,2,3,NA
+Mauritania,Trarza,Rosso,66977,2,42196,20093,4688,0,0,4688,2,1,3,NA

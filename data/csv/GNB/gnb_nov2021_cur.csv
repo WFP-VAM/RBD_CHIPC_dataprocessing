@@ -1,0 +1,9 @@
+adm0_name,adm1_name,population,phase_class,phase1,phase2,phase3,phase4,phase5,phase35,foodconsumption_phase,livelihoods_phase,nutrition_phase,mortality_phase,FCG_Poor,FCG_Borderline,FCG_Acceptable,FCG_finalphase,HDDS_Phase1,HDDS_Phase2,HDDS_Phase3,HDDS_Phase4,HDDS_Phase5,HDDS_finalphase,HHS_Phase1,HHS_Phase2,HHS_Phase3,HHS_Phase4,HHS_Phase5,HHS_finalphase,LhHCSCat_NoStrategies,LhHCSCat_StressStrategies,LhHCSCat_CrisisStategies,LhHCSCat_EmergencyStrategies,LhHCSCat_finalphase,rCSI_Phase1,rCSI_Phase2,rCSI_Phase3,rCSI_finalphase
+Guinea-Bissau,Bafata,242372,1,198745.04,33932.08,9694.88,0,0,9694.88,1,2,NA,NA,2.2,8.2,89.6,1,85.4,7.7,4.5,1.9,0.5,1,86.5,6.4,6.9,0,0.2,1,57.6,28.4,9,5,2,68.5,21,10.5,2
+Guinea-Bissau,Biombo,117770,1,97749.1,15310.1,4710.8,0,0,4710.8,1,1,NA,NA,0,14.2,85.8,1,92.4,5.9,1.4,0.3,0,1,71.9,17.5,10.1,0.5,0,2,48.7,45.1,2.4,3.8,2,74.8,16.1,9.1,2
+Guinea-Bissau,Bolama,37019,2,28504.63,6663.42,1850.95,0,0,1850.95,2,2,NA,NA,5.8,13.6,80.6,2,74.5,10.8,4.9,3.9,5.9,2,86.9,4.8,8.3,0,0,1,67.7,28.4,2.9,1,2,73.8,22.7,3.5,2
+Guinea-Bissau,Cacheu,215709,1,176881.38,34513.44,4314.18,0,0,4314.18,1,2,NA,NA,3.4,14.8,81.8,1,80.1,9.1,5.4,5.2,0.2,1,88.3,7.9,3.6,0.2,0,1,69.7,19.8,4.7,5.8,2,68.7,23.2,8.1,2
+Guinea-Bissau,Gabu,274316,2,205737,54863.2,13715.8,0,0,13715.8,1,3,NA,NA,1.7,15.5,82.8,1,80.7,11.4,5.6,2.3,0,1,77.8,11.8,10.2,0,0.2,2,33.1,36.7,19.6,10.6,3,56.6,31.6,11.8,2
+Guinea-Bissau,Oio,259715,2,171411.9,72720.2,15582.9,0,0,15582.9,2,3,NA,NA,9,15.4,75.6,2,72.5,12.4,10,4,1.1,2,69,16.4,14.6,0,0,2,13.8,55,14.4,16.8,3,46.6,37.5,15.9,2
+Guinea-Bissau,Quinara,74856,2,50153.52,18714,5988.48,0,0,5988.48,2,3,NA,NA,1.6,13.8,84.6,1,77.8,7.4,10.6,3.7,0.5,2,79.4,8,12.6,0,0,2,63.5,15.9,11.6,9,3,64.7,25.7,9.6,2
+Guinea-Bissau,Tombali,106912,1,93013.44,11760.32,2138.24,0,0,2138.24,1,2,NA,NA,0,7.8,92.2,1,85.4,9.6,3.2,1.4,0.4,1,77.3,14.3,8,0.2,0.2,2,62.4,18.1,14.2,5.3,2,56.7,26.4,16.9,2

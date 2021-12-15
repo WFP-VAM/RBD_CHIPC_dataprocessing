@@ -1,0 +1,46 @@
+adm0_name,adm1_name,adm2_name,population,phase_class,phase1,phase2,phase3,phase4,phase5,phase35
+Senegal,Ziguinchor,Bignona,314549,1,286240,25164,3145,0,0,3145
+Senegal,Sedhiou,Bounkiling,183842,1,158104,25738,0,0,0,0
+Senegal,Diourbel,Diourbel,333063,2,213160,93258,26645,0,0,26645
+Senegal,Fatick,Fatick,427752,1,350757,64163,12833,0,0,12833
+Senegal,Fatick,Foundiougne,352346,1,324158,28188,0,0,0,0
+Senegal,Fatick,Gossas,120689,2,79655,32586,8448,0,0,8448
+Senegal,Tambacounda,Goudiry,147018,2,102913,39695,4411,0,0,4411
+Senegal,Sedhiou,Goudomp,197137,1,179395,15771,1971,0,0,1971
+Senegal,Kaolack,Guinguineo,142838,1,119984,22854,0,0,0,0
+Senegal,Kaffrine,Kaffrine,266997,2,170878,74759,21360,0,0,21360
+Senegal,Matam,Kanel,310850,2,230029,55953,24868,0,0,24868
+Senegal,Kaolack,Kaolack,606110,1,503071,103039,0,0,0,0
+Senegal,Louga,Kebemer,314627,2,235970,69218,9439,0,0,9439
+Senegal,Kedougou,Kedougou,98836,2,51395,34593,12849,0,0,12849
+Senegal,Kaffrine,Koungheul,210123,2,151289,42025,16810,0,0,16810
+Senegal,Louga,Linguere,293757,2,208567,64627,20563,0,0,20563
+Senegal,Louga,Louga,453223,2,290063,113306,49855,0,0,49855
+Senegal,Kaffrine,Malem Hoddar,121701,1,98578,14604,8519,0,0,8519
+Senegal,Matam,Matam,355166,3,156273,106550,88792,3552,0,92343
+Senegal,Diourbel,Mbacke,1154558,1,935192,207820,11546,0,0,11546
+Senegal,Kaffrine,Mbirkilane,130129,2,67667,39039,23423,0,0,23423
+Senegal,Thies,Mbour,808709,1,711664,97045,0,0,0,0
+Senegal,Kolda,Medina Yoro Foulah,171340,2,121651,30841,17134,1713,0,18847
+Senegal,Kaolack,Nioro,442620,1,358522,66393,17705,0,0,17705
+Senegal,Ziguinchor,Oussouye,60196,2,37322,18059,4816,0,0,4816
+Senegal,Saint-Louis,Podor,445313,2,302813,102422,40078,0,0,40078
+Senegal,Matam,Ranerou,66850,2,42116,20055,4680,0,0,4680
+Senegal,Saint Louis,Saint Louis,356125,2,270655,78348,7123,0,0,7123
+Senegal,Kedougou,Salemata,27831,3,9741,9741,7793,557,0,8349
+Senegal,Kedougou,Saraya,63846,2,42138,18515,3192,0,0,3192
+Senegal,Sedhiou,Sedhiou,191120,2,143340,38224,9556,0,0,9556
+Senegal,Tambacounda,Tambacounda,382963,2,264244,107230,11489,0,0,11489
+Senegal,Thies,Thies,807422,1,662086,145336,0,0,0,0
+Senegal,Kolda,Velingara,345426,2,238344,79448,27634,0,0,27634
+Senegal,Ziguinchor,Ziguinchor,309207,1,259734,49473,0,0,0,0
+Senegal,Tambacounda,Bakel,177766,2,136880,37331,3555,0,0,3555
+Senegal,Diourbel,Bambey,371882,2,252880,92971,26032,0,0,26032
+Senegal,Saint-Louis,Dagana,290302,1,240951,46448,2903,0,0,2903
+Senegal,Dakar,Dakar,1400974,2,924643,420292,56039,0,0,56039
+Senegal,Dakar,Guediawaye,402986,1,342538,56418,4030,0,0,4030
+Senegal,Kolda,Kolda,305233,2,231977,57994,12209,3052,0,15262
+Senegal,Dakar,Pikine,1431216,2,1016163,329180,85873,0,0,85873
+Senegal,Dakar,Rufisque,599843,1,497870,101973,0,0,0,0
+Senegal,Thies,Tivaouane,546700,2,317086,164010,65604,0,0,65604
+Senegal,Tambacounda,Koumpentoum,164409,2,129883,29594,4932,0,0,4932

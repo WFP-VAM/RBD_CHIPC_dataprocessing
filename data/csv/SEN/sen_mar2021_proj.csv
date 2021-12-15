@@ -1,0 +1,46 @@
+adm0_name,adm1_name,adm2_name,population,phase_class,phase1,phase2,phase3,phase4,phase5,phase35,foodconsumption_phase,livelihoods_phase,nutrition_phase,mortality_phase
+Senegal,Dakar,Dakar,1438725,2,1064657,359681,14387,0,0,14387,2,2,NA,NA
+Senegal,Dakar,Guediawaye,413844,1,341421,66215,6208,0,0,6208,1,2,NA,NA
+Senegal,Dakar,Pikine,1469782,1,1227268,220467,22047,0,0,22047,1,2,NA,NA
+Senegal,Dakar,Rufisque,616006,2,486645,117041,12320,0,0,12320,1,2,NA,NA
+Senegal,Diourbel,Bambey,383799,2,264821,95950,23028,0,0,23028,2,2,NA,NA
+Senegal,Diourbel,Diourbel,343736,2,271551,58435,13749,0,0,13749,1,2,NA,NA
+Senegal,Diourbel,Mbacke,1191556,2,929414,238311,23831,0,0,23831,2,2,NA,NA
+Senegal,Fatick,Fatick,442871,1,363154,70859,8857,0,0,8857,1,2,NA,NA
+Senegal,Fatick,Foundiougne,364800,1,317376,40128,7296,0,0,7296,1,2,NA,NA
+Senegal,Fatick,Gossas,124955,2,92467,24991,7497,0,0,7497,1,2,NA,NA
+Senegal,Kaffrine,Birkelane,134810,1,109196,14829,10785,0,0,10785,1,1,NA,NA
+Senegal,Kaffrine,Kaffrine,276602,2,221282,47022,8298,0,0,8298,1,1,NA,NA
+Senegal,Kaffrine,Koungheul,217682,2,145847,63128,8707,0,0,8707,2,2,NA,NA
+Senegal,Kaffrine,Malem Hodar,126080,2,98342,22694,5043,0,0,5043,1,2,NA,NA
+Senegal,Kaolack,Guinguineo,147295,1,120045,25040,2209,0,0,2209,1,2,NA,NA
+Senegal,Kaolack,Kaolack,625022,1,512518,75003,37501,0,0,37501,1,2,NA,NA
+Senegal,Kaolack,Nioro Du Rip,456430,1,387966,68465,0,0,0,0,1,1,NA,NA
+Senegal,Kedougou,Kedougou,102196,2,65405,28615,6132,2044,0,8176,2,2,NA,NA
+Senegal,Kedougou,Salemata,28777,3,12662,9209,6619,288,0,6906,3,3,NA,NA
+Senegal,Kedougou,Saraya,66017,2,40931,19805,5281,0,0,5281,2,2,NA,NA
+Senegal,Kolda,Kolda,315018,2,223663,85055,6300,0,0,6300,1,2,NA,NA
+Senegal,Kolda,Medina Yoro Foulah,176832,2,125551,45976,5305,0,0,5305,2,2,NA,NA
+Senegal,Kolda,Velingara,319425,1,265123,44720,9583,0,0,9583,1,2,NA,NA
+Senegal,Louga,Kebemer,323417,2,190816,109962,22639,0,0,22639,2,3,NA,NA
+Senegal,Louga,Linguere,301965,2,235533,60393,6039,0,0,6039,1,2,NA,NA
+Senegal,Louga,Louga,465886,2,368050,88518,9318,0,0,9318,1,2,NA,NA
+Senegal,Matam,Kanel,322609,2,229052,58070,35487,0,0,35487,2,2,NA,NA
+Senegal,Matam,Matam,368601,2,261707,92150,14744,0,0,14744,2,2,NA,NA
+Senegal,Matam,Ranerou,69378,3,22895,31220,11100,4163,0,15263,3,3,NA,NA
+Senegal,Saint Louis,Dagana,297972,1,247317,47676,2980,0,0,2980,1,2,NA,NA
+Senegal,Saint Louis,Podor,457079,2,319955,109699,27425,0,0,27425,2,2,NA,NA
+Senegal,Saint Louis,Saint Louis,365534,1,299738,51175,14621,0,0,14621,1,2,NA,NA
+Senegal,Sedhiou,Bounkiling,190227,1,154084,26632,9511,0,0,9511,1,1,NA,NA
+Senegal,Sedhiou,Goudomp,203984,1,165227,36717,2040,0,0,2040,1,2,NA,NA
+Senegal,Sedhiou,Sedhiou,197758,1,172049,23731,1978,0,0,1978,1,2,NA,NA
+Senegal,Tambacounda,Bakel,184263,2,128984,46066,9213,0,0,9213,2,2,NA,NA
+Senegal,Tambacounda,Goudiry,152391,2,102102,45717,4572,0,0,4572,1,2,NA,NA
+Senegal,Tambacounda,Koumpentoum,170418,1,138039,23859,8521,0,0,8521,1,2,NA,NA
+Senegal,Tambacounda,Tambacounda,396960,1,341386,43666,11909,0,0,11909,1,2,NA,NA
+Senegal,Thies,Mbour,830495,1,689311,124574,16610,0,0,16610,1,1,NA,NA
+Senegal,Thies,Thies,829174,1,704798,107793,16583,0,0,16583,1,2,NA,NA
+Senegal,Thies,Tivaouane,356499,1,317284,39215,0,0,0,0,1,2,NA,NA
+Senegal,Ziguinchor,Bignona,324943,1,272952,45492,6499,0,0,6499,1,2,NA,NA
+Senegal,Ziguinchor,Oussouye,62185,1,52235,8706,1244,0,0,1244,1,2,NA,NA
+Senegal,Ziguinchor,Ziguinchor,561428,1,494057,67371,0,0,0,0,1,2,NA,NA

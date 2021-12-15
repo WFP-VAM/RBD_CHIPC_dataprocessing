@@ -1,0 +1,70 @@
+adm0_name,adm1_name,adm2_name,population,phase_class,phase1,phase2,phase3,phase4,phase5,phase35
+Chad,Barh El Gazal,Barh-El-Gazal Sud,194065,3,95092,50457,40754,7763,,48516
+Chad,Barh El Gazal,Barh-El-Gazal Ouest,74262,3,38616,18566,14110,2970,,17080
+Chad,Barh El Gazal,Barh-El-Gazal Nord,85000,3,42500,23800,15300,3400,,18700
+Chad,Batha,Batha Ouest,271536,3,130337,78745,54307,8146,,62453
+Chad,Batha,Batha Est,247681,3,104026,79258,56967,7430,,64397
+Chad,Batha,Fitri,151626,2,107654,39423,4549,,,4549
+Chad,Borkou,Borkou,93899,2,66668,22536,4695,,,4695
+Chad,Borkou,Borkou Yala,34629,2,27011,6233,1385,,,1385
+Chad,Chari Baguirmi,Baguirmi,288029,1,273628,14401,,,,
+Chad,Chari Baguirmi,Chari,251197,1,238637,12560,,,,
+Chad,Chari Baguirmi,Loug-Chari,255177,1,247522,7655,,,,
+Chad,Ennedi Est,Am Djaras,109062,2,78525,26175,4362,,,4362
+Chad,Ennedi Est,Wadi Hawar,38305,2,25664,10725,1915,,,1915
+Chad,Ennedi Ouest,Fada,53980,2,38326,14035,1619,,,1619
+Chad,Ennedi Ouest,Mourtcha,29271,2,21368,6732,1171,,,1171
+Chad,Guera,Guera,236837,2,165786,56841,14210,,,14210
+Chad,Guera,Abtouyour,229951,2,174763,45990,9198,,,9198
+Chad,Guera,Barh Signaka,142245,1,122331,17069,2845,,,2845
+Chad,Guera,Mangalme,130344,3,70386,32586,24765,2607,,27372
+Chad,Hadjer Lamis,Dagana,258675,2,183659,67256,7760,,,7760
+Chad,Hadjer Lamis,Dababa,313737,2,222753,78434,12549,,,12549
+Chad,Hadjer Lamis,Haraze Al Biar,206105,1,185495,20611,,,,
+Chad,Kanem,Kanem,210370,3,84148,75733,42074,8415,,50489
+Chad,Kanem,Nord Kanem,124930,3,53720,39978,26235,4997,,31233
+Chad,Kanem,Wadi-Bissam,122570,3,55157,39222,23288,4903,,28191
+Chad,Lac,Mamdi,191845,3,67146,65227,51798,7674,,59472
+Chad,Lac,Wayi,289635,3,124543,72409,81098,11585,,92683
+Chad,Lac,Fouli,53448,3,22448,15500,13896,1603,,15500
+Chad,Lac,Kaya,60833,3,22508,18858,17642,1825,,19467
+Chad,Logone Occidental,Lac Wey,455273,1,396088,59185,,,,
+Chad,Logone Occidental,Dodje,146076,1,127086,18990,,,,
+Chad,Logone Occidental,Gueni,126371,1,107415,18956,,,,
+Chad,Logone Occidental,Ngourkosso,218605,1,185814,32791,,,,
+Chad,Logone Oriental,La Pende,220369,2,171888,46277,2204,,,2204
+Chad,Logone Oriental,Kouh Est,139193,2,103003,33406,2784,,,2784
+Chad,Logone Oriental,Kouh Ouest,68003,2,53042,14961,,,,
+Chad,Logone Oriental,La Nya,193565,2,147109,44520,1936,,,1936
+Chad,Logone Oriental,La Nya Pende,148450,2,112822,34144,1485,,,1485
+Chad,Logone Oriental,Monts De Lam,300756,2,213537,78197,9023,,,9023
+Chad,Mandoul,Mandoul Oriental,351747,2,256775,84419,10552,,,10552
+Chad,Mandoul,Barh Sara,298370,2,229745,65641,2984,,,2984
+Chad,Mandoul,Mandoul Occidental,212461,2,163595,46741,2125,,,2125
+Chad,Mayo Kebbi Est,Mayo-Boneye,324076,1,278705,45371,,,,
+Chad,Mayo Kebbi Est,Kabbia,314278,1,267136,47142,,,,
+Chad,Mayo Kebbi Est,Mayo-Lemie,112688,1,94658,18030,,,,
+Chad,Mayo Kebbi Est,Mont Illi,313035,1,278601,34434,,,,
+Chad,Mayo Kebbi Ouest,Mayo-Dallah,459735,1,399969,59766,,,,
+Chad,Mayo Kebbi Ouest,Mayo-Binder,75400,1,66352,9048,,,,
+Chad,Mayo Kebbi Ouest,Lac Lere,240101,1,232898,7203,,,,
+Chad,Moyen Chari,Barh Koh,421322,1,387616,33706,,,,
+Chad,Moyen Chari,Grande Sido,147005,1,132305,14701,,,,
+Chad,Moyen Chari,Lac Iro,239238,1,210529,28709,,,,
+Chad,Ouaddai,Ouara,451360,2,297898,121867,31595,,,31595
+Chad,Ouaddai,Abdi,146789,2,105688,32294,8807,,,8807
+Chad,Ouaddai,Assoungha,392292,2,266759,94150,31383,,,31383
+Chad,Salamat,Barh Azoum,250241,1,217710,32531,,,,
+Chad,Salamat,Aboudeia,88829,2,67510,19542,1777,,,1777
+Chad,Salamat,Haraze Mangueigne,76106,1,68495,7611,,,,
+Chad,Sila,Kimiti,420165,1,386552,33613,,,,
+Chad,Sila,Djourouf Al Amar,111970,2,88456,20155,3359,,,3359
+Chad,Tandjile,Tandjile Est,349713,2,265782,73440,10491,,,10491
+Chad,Tandjile,Tandjite Centre,120868,1,106364,14504,,,,
+Chad,Tandjile,Tandjile Ouest,438474,1,394627,43847,,,,
+Chad,Tibesti,Tibesti Est,19759,2,15214,4347,198,,,198
+Chad,Tibesti,Tibesti Ouest,15239,2,11277,3657,305,,,305
+Chad,Wadi Fira,Biltine,232171,3,113764,65008,44112,9287,,53399
+Chad,Wadi Fira,Dar Tama,246359,3,125643,61590,49272,9854,,59126
+Chad,Wadi Fira,Kobe,191628,3,88149,55572,40242,7665,,47907
+Chad,Wadi Fira,Megri,28050,3,13184,8696,5049,1122,,6171
