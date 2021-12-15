@@ -1,0 +1,41 @@
+"0","library(readxl)
+library(tidyverse)
+library(plotly)
+library(extrafont)
+library(flextable)
+
+#create theme
+#make x and y axis blank, put legend in bottom
+theme_vamgraphs <- function(){ 
+    font <- ""Open Sans""   #assign font family up front
+    theme_minimal() %+replace%    #replace elements we want to change
+    theme(
+      plot.title = element_text(family = ""Open Sans SemiBold"", color = ""black"", size = 30, margin=margin(0,0,30,0)),
+      strip.text = element_text(family = ""Open Sans SemiBold"", color = ""black"", size = 18, margin=margin(0,0,30,0)),
+      #grid elements
+      panel.grid.major = element_blank(),    #strip major gridlines
+      panel.grid.minor = element_blank(),    #strip minor gridlines
+            axis.ticks = element_blank(),          #strip axis ticks
+      axis.text.x = element_text(family = ""Open Sans"", color = ""black"", size = 10, angle = 90),
+      axis.text.y =  element_text(family = ""Open Sans"", color = ""black"", size = 10),
+      legend.position = ""bottom"",
+      legend.title = element_blank(),
+      legend.text = element_text(family = ""Open Sans SemiBold"", color = ""black"", size = 8),
+      panel.spacing = unit(1, ""cm""),
+      panel.margin = unit(2, ""lines""))
+}
+
+
+library(tidyverse)
+library(sf)
+library(googlesheets4)
+library(janitor)
+library(rmapshaper)
+library(readxl)
+library(mapview)
+
+#add CH shapefiles
+wca_CHIPC_nov2021_current <- read_sf(""C:\\RBD_CHIPC_dataprocessing\\data\\geo\\finalized_CHgeofiles\\wca_CHIPC_nov2020_current_nov2020_simple.gpkg"")
+"
+"2","Error: Cannot open ""C:\RBD_CHIPC_dataprocessing\data\geo\finalized_CHgeofiles\wca_CHIPC_nov2020_current_nov2020_simple.gpkg""; The file doesn't seem to exist.
+"

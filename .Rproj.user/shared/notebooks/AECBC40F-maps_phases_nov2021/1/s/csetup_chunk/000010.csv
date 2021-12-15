@@ -1,0 +1,14 @@
+"0","library(tidyverse)
+library(sf)
+library(googlesheets4)
+library(rgdal)
+library(janitor)
+library(rmapshaper)
+library(readxl)
+library(mapview)
+
+#add CH shapefiles
+wca_CHIPC_nov2021_current <- read_sf(""data\\geo\\finalized_CHgeofiles\\wca_CHIPC_nov2020_current_nov2020_simple.geojson"")
+"
+"2","Error: Cannot open ""data\geo\finalized_CHgeofiles\wca_CHIPC_nov2020_current_nov2020_simple.geojson""; The file doesn't seem to exist.
+"
