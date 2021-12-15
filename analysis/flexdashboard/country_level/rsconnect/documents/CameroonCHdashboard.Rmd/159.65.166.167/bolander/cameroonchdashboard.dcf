@@ -1,0 +1,12 @@
+name: cameroonchdashboard
+title: CameroonCHdashboard
+username: bolander
+account: bolander
+server: 159.65.166.167
+hostUrl: http://159.65.166.167/__api__
+appId: 17
+bundleId: 23
+url: http://159.65.166.167/Cameroon_CH/
+when: 1620393029.02358
+asMultiple: FALSE
+asStatic: TRUE

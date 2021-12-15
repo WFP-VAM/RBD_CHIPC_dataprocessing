@@ -1,0 +1,5 @@
+"0","#add CH shapefile
+CH <- read_sf(""wca_CHIPC_clean_nov2020.gpkg"")
+"
+"2","Error: Cannot open ""wca_CHIPC_clean_nov2020.gpkg""; The file doesn't seem to exist.
+"

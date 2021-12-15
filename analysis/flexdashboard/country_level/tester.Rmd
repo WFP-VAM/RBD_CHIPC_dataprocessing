@@ -1,0 +1,68 @@
+---
+title: "Cadre Harmonise Trends: Test"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+params: 
+  country: "Mali"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(flexdashboard)
+library(tidyverse)
+library(janitor)
+library(skimr)
+library(sf)
+library(tmap)
+library(leaflet)
+library(readxl)
+library(plotly)
+library(DT)
+library(leaflet.extras2)
+library(roperators)
+
+#MAP
+#add CH shapefile
+CH_cur <- read_sf("C:/RBD_CHIPC_dataprocessing/data/geo/finalized_CHgeofiles/wca_CHIPC_mar2021_current.gpkg") %>% filter(adm0_name==params$country)
+CH_proj <- read_sf("C:/RBD_CHIPC_dataprocessing/data/geo/finalized_CHgeofiles/wca_CHIPC_mar2021_projected.gpkg") %>% filter(adm0_name==params$country)
+
+wca_shp0all <- read_sf("C:/RBD_CHIPC_dataprocessing/data/geo/finalized_CHgeofiles/wca_shp0all.gpkg") %>% filter(admin0Name==params$country)
+#create color palette
+pal <-  colorFactor(palette = c("#c6ffc7", "#ffe718", "#e88400","#e02d00","#E1E1E1"), 
+              levels = c("1", "2", "3", "4","Not Analyzed"))
+#current
+CHmapleaflet_current <- CH_cur %>% leaflet() %>% addPolygons(weight = 0.25, fillOpacity = 0.75,
+                                                       color = ~pal(phase_class),
+                                                       popup = paste("Country:", CH_cur$adm0_name, "<br>",
+                                                                    "Admin1:", CH_cur$adm1_name, "<br>",
+                                                                    "Admin2:", CH_cur$adm2_name, "<br>",
+                                                                    "Phase:", CH_cur$phase_class, "<br>",
+                                                                    "Total Population:", CH_cur$population, "<br>",
+                                                                    "Phase 1 Population:", CH_cur$phase1, "<br>",
+                                                                    "Phase 2 Population:", CH_cur$phase2, "<br>",
+                                                                    "Phase 3 Population:", CH_cur$phase3, "<br>",
+                                                                    "Phase 4 Population:", CH_cur$phase4, "<br>",
+                                                                    "Phase 5 Population:", CH_cur$phase5, "<br>",
+                                                                    "Phase 3-5 Population:", CH_cur$phase35, "<br>"),
+                                                       highlight = highlightOptions(weight = 3, color = "black", bringToFront = FALSE)) %>% 
+                                                       addLegend("bottomleft", pal = pal, values = ~phase_class,
+            title = "Phase",
+            opacity = 4) %>% addPolylines(data=wca_shp0all, color="#000000", weight=2.5) %>%
+  addEasyprint() %>% 
+  addEasyButton(easyButton(
+    icon="fa-globe", title="reset to original view",
+    onClick=JS("function(btn, map){ map.setView([13, 3], 4);}")))
+```
+
+```{r results="asis"}
+cat("
+<style>
+.leaflet-container {
+    background: #FFF;
+}
+</style>
+")
+CHmapleaflet_current
+```

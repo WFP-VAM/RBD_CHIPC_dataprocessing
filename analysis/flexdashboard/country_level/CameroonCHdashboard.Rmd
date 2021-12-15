@@ -1,0 +1,219 @@
+---
+title: "Cadre Harmonise Trends: Cameroon"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(janitor)
+library(skimr)
+library(sf)
+library(tmap)
+library(leaflet)
+library(readxl)
+library(plotly)
+library(DT)
+library(leaflet.extras2)
+library(roperators)
+
+#MAP
+#add CH shapefile
+CH <- read_sf("C:/RBD_CHIPC_dataprocessing/data/geo/finalized_CHgeofiles/wca_CH_mar2021.gpkg") %>% filter(adm0_name == "Cameroon")
+wca_shp0all <- read_sf("C:/RBD_CHIPC_dataprocessing/data/geo/finalized_CHgeofiles/wca_shp0all.gpkg") %>% filter(admin0Name == "Cameroon")
+#create color palette
+pal <-  colorFactor(palette = c("#c6ffc7", "#ffe718", "#e88400","#e02d00","#E1E1E1"), 
+              levels = c("1", "2", "3", "4","Not Analyzed"))
+#current
+CHmapleaflet_current <- CH %>% leaflet() %>% addPolygons(weight = 0.25, fillOpacity = 0.75,
+                                                       color = ~pal(currentmar2021_phase_class),
+                                                       popup = paste("Country:", CH$adm0_name, "<br>",
+                                                                    "Admin1:", CH$adm1_name, "<br>",
+                                                                    "Admin2:", CH$adm2_name, "<br>",
+                                                                    "Phase:", CH$currentmar2021_phase_class, "<br>",
+                                                                    "Total Population:", CH$currentmar2021_population, "<br>",
+                                                                    "Phase 1 Population:", CH$currentmar2021_phase1, "<br>",
+                                                                    "Phase 2 Population:", CH$currentmar2021_phase2, "<br>",
+                                                                    "Phase 3 Population:", CH$currentmar2021_phase3, "<br>",
+                                                                    "Phase 4 Population:", CH$currentmar2021_phase4, "<br>",
+                                                                    "Phase 5 Population:", CH$currentmar2021_phase5, "<br>",
+                                                                    "Phase 3-5 Population:", CH$currentmar2021_phase35, "<br>"),
+                                                       highlight = highlightOptions(weight = 3, color = "black", bringToFront = FALSE)) %>% 
+                                                       addLegend("bottomleft", pal = pal, values = ~currentmar2021_phase_class,
+            title = "Phase",
+            opacity = 4) %>% addPolylines(data=wca_shp0all, color="#000000", weight=2.5) %>%
+  addEasyprint() %>% 
+  addEasyButton(easyButton(
+    icon="fa-globe", title="reset to original view",
+    onClick=JS("function(btn, map){ map.setView([13, 3], 4);}")))
+#projected
+CHmapleaflet_projected <- CH %>% leaflet() %>% addPolygons(weight = 0.25, fillOpacity = 0.75,
+                                                       color = ~pal(projectedmar2021_phase_class),
+                                                       popup = paste("Country:", CH$adm0_name, "<br>",
+                                                                    "Admin1:", CH$adm1_name, "<br>",
+                                                                    "Admin2:", CH$adm2_name, "<br>",
+                                                                    "Phase:", CH$projectedmar2021_phase_class, "<br>",
+                                                                    "Total Population:", CH$projectedmar2021_population, "<br>",
+                                                                    "Phase 1 Population:", CH$projectedmar2021_phase1, "<br>",
+                                                                    "Phase 2 Population:", CH$projectedmar2021_phase2, "<br>",
+                                                                    "Phase 3 Population:", CH$projectedmar2021_phase3, "<br>",
+                                                                    "Phase 4 Population:", CH$projectedmar2021_phase4, "<br>",
+                                                                    "Phase 5 Population:", CH$projectedmar2021_phase5, "<br>",
+                                                                    "Phase 3-5 Population:", CH$projectedmar2021_phase35, "<br>"),
+                                                       highlight = highlightOptions(weight = 3, color = "black", bringToFront = F)) %>% 
+                                                       addLegend("bottomleft", pal = pal, values = ~projectedmar2021_phase_class,
+            title = "Phase",
+            opacity = 4) %>% addPolylines(data=wca_shp0all, color="#000000", weight=2.5) %>%
+  addEasyprint() %>% 
+  addEasyButton(easyButton(
+    icon="fa-globe", title="reset to original view",
+    onClick=JS("function(btn, map){ map.setView([13, 3], 4);}")))
+
+##
+#first get data from the last Cadre Harmonise
+cadre_harmonise <- read_excel("C:/RBD_CHIPC_dataprocessing/data/processed/cadre_harmonise_caf_ipc.xlsx") %>% filter(adm0_name == "Cameroon")
+data_filtered <- cadre_harmonise %>% filter(exercise_year >= 2019) 
+#make variable that show exercise period and reference label
+data_filtered$date_period <- paste(data_filtered$exercise_label, data_filtered$exercise_year, data_filtered$reference_label, data_filtered$reference_year, sep = "_", collapse = NULL)
+#filter only correct periods
+data_filtered <- data_filtered %>% filter(date_period %ni% c("Sep-Dec_2019_Jun-Aug_2020","Sep-Dec_2020_Jun-Aug_2021"))
+#change reference time period labels to be more informative and not franglais
+data_filtered <- data_filtered %>% mutate(reference_label = case_when(
+  reference_label == "Jun-Aug" ~ "Projected: June-August",
+  reference_label == "Sep-Dec" ~ "Current: September-December",
+  reference_label == "Jan-May" ~ "Current: January-May"
+))
+#create % food insecure (phase3-5) out of analyzed population total
+data_filtered <- data_filtered %>% mutate_at(vars(phase1:phase35), ~replace_na(., 0)) %>% mutate(perc35 = round((phase35 / population)*100,1),
+                                          phase1million = phase1 / 1E6,
+                                          phase2million = phase2 / 1E6,
+                                          phase3million = phase3 / 1E6,
+                                          phase4million = phase4 / 1E6,
+                                          phase5million = phase5 / 1E6,
+                                          phase35million = phase35 / 1E6) 
+#make reference year a factor
+data_filtered <- data_filtered %>% mutate(reference_year = as.factor(reference_year))
+#
+data_filtered$reference_label <- as.factor(data_filtered$reference_label)
+data_filtered$reference_label <- fct_relevel(data_filtered$reference_label, "Current: January-May", "Projected: June-August", "Current: September-December")
+#summarize phases for RBD 
+data_filtered_rbd <- data_filtered %>% group_by (reference_label, reference_year) %>% 
+summarise(phase1 = sum(phase1million), phase2 = sum(phase2million), phase3 = sum(phase3million), phase4 = sum(phase4million), phase5 = sum(phase5million), phase35 = sum(phase35million)) %>% ungroup()
+#pivot longer
+data_filtered_rbd_all <- data_filtered_rbd %>% select(-phase35, -phase1) %>% pivot_longer(!reference_label:reference_year, names_to = "phase", values_to = "millions")
+
+#create theme
+#make x and y axis blank, put legend in bottom
+theme_vamgraphs <- function(){ 
+  font <- "Open Sans"   #assign font family up front
+  theme_minimal() %+replace%    #replace elements we want to change
+    theme(
+      plot.title = element_text(family = "Open Sans SemiBold", color = "black", hjust = 0.5, size = 18, margin=margin(0,0,5,0)),
+      plot.subtitle = element_text(family = "Open Sans SemiBold", color = "black", hjust = 0.5, size = 12, margin=margin(0,0,30,0)),
+      strip.text = element_text(family = "Open Sans SemiBold", color = "black",  size = 10, margin=margin(0,0,30,0)),
+      strip.text.x = element_text(family = "Open Sans SemiBold", color = "black",  size = 10, margin=margin(0,0,30,0)),
+      #grid elements
+      panel.grid.major = element_blank(),    #strip major gridlines
+      panel.grid.minor = element_blank(),    #strip minor gridlines
+      axis.ticks = element_blank(),          #strip axis ticks
+      axis.text.x = element_text(family = "Open Sans", color = "black", size = 8, angle = 90),
+      axis.title.x = element_blank(),
+      axis.text.y =  element_blank(),
+      legend.position = "bottom",
+      legend.title = element_blank(),
+      legend.text = element_text(family = "Open Sans SemiBold", color = "black", size = 8),
+      panel.spacing = unit(1, "cm"),
+      panel.margin = unit(2, "lines"),
+      panel.grid.major.x = element_blank(),
+      panel.grid.minor.x = element_blank())
+}
+
+
+
+
+#CH color code
+CH_colors = c("phase1" = "#c6ffc7", "phase2" = "#ffe718", "phase3" = "#e88400", "phase4" = "#e02d00", "phase5" = "#5e0803")
+#projected
+plot_rbd_proj <- data_filtered_rbd_all %>% filter(reference_label == "Projected: June-August") %>% ggplot(aes(x = reference_year, y = millions, fill = phase)) +geom_bar(stat = "identity") +scale_fill_manual(values = CH_colors) +theme_vamgraphs() 
+plot_rbd_proj  <- plot_rbd_proj +ylab("number of people (millions)")  
+#janmay
+plot_rbd_janmay <- data_filtered_rbd_all %>% filter(reference_label == "Current: January-May") %>% ggplot(aes(x = reference_year, y = millions, fill = phase)) +geom_bar(stat = "identity")  +scale_fill_manual(values = CH_colors) +theme_vamgraphs()  
+plot_rbd_janmay  <- plot_rbd_janmay +ylab("number of people (millions)")  
+
+
+#summarize phases for RBD 
+data_filtered_phase35 <- data_filtered %>% group_by (reference_label, reference_year, adm0_name, adm1_name) %>% summarise(phase35 = sum(phase35)) %>% ungroup()
+#pivot longer
+data_filtered_phase35 <- data_filtered_phase35 %>% pivot_longer(!reference_label:adm1_name, names_to = "phase", values_to = "phase35")
+#Projected
+plot_rbd_proj_35 <- data_filtered_phase35 %>% filter(reference_label == "Projected: June-August") %>% ggplot(aes(x = reference_year, y = phase35, group = adm1_name, color=adm1_name)) +geom_line() +theme_vamgraphs()  
+#JanMay
+plot_rbd_janmay_35 <- data_filtered_phase35 %>% filter(reference_label == "Current: January-May") %>% ggplot(aes(x = reference_year, y = phase35, group = adm1_name, color=adm1_name)) +geom_line() +theme_vamgraphs()  
+
+
+
+
+
+```
+
+
+Row
+-------------------------------------
+    
+### Current (Jan. - May 2021) Phase Classification of areas
+    
+
+```{r results="asis"}
+cat("
+<style>
+.leaflet-container {
+    background: #FFF;
+}
+</style>
+")
+CHmapleaflet_current
+```
+ 
+### Estimated Number of Persons by Phase (in millions)
+    
+```{r}
+ggplotly(plot_rbd_janmay)
+``` 
+
+### Number of Persons (phase 3 - 5) by Admin 1
+    
+```{r}
+ggplotly(plot_rbd_janmay_35)
+``` 
+
+Row
+-------------------------------------
+    
+### Projected (Jun. - Aug. 2021) Phase Classification of areas
+    
+
+```{r results="asis"}
+cat("
+<style>
+.leaflet-container {
+    background: #FFF;
+}
+</style>
+")
+CHmapleaflet_projected
+```
+    
+### Number of Persons by Phase (in millions)
+
+```{r}
+ggplotly(plot_rbd_proj)
+```
+
+### Number of Persons (phase 3 - 5) by Admin 1 
+
+```{r}
+ggplotly(plot_rbd_proj_35)
+```

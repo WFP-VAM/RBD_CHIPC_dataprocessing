@@ -1,0 +1,386 @@
+---
+title: "**Cadre Harmonisé (CH) & Integrated Phase Classification (IPC) Estimations for West & Central Africa**"
+output: 
+  flexdashboard::flex_dashboard:
+    source_code: "https://github.com/olanderb/CHIPCdataRBD/"
+    social: "menu"
+  
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(DT)
+library(plotly)
+library(readxl)
+library(leaflet)
+library(sf)
+library(leaflet.extras2)
+
+cadre_harmonise_caf_ipc_orig <- read_excel("C:\\RBD_CHIPC_dataprocessing\\data\\processed\\cadre_harmonise_caf_ipc.xlsx")
+cadre_harmonise_caf_ipc <- cadre_harmonise_caf_ipc_orig %>% filter(exercise_year == 2021 & exercise_label == "Jan-May") %>% mutate_at(vars(population:phase35), replace_na, 0) 
+
+#make tables
+#by country
+cadre_harmonise_caf_ipc_country <- cadre_harmonise_caf_ipc %>% group_by(Country = adm0_name, chtype) %>% summarise(population = sum(population), phase1 = sum(phase1), phase2 = sum(phase2), phase3 =sum(phase3), phase4 = sum(phase4), phase5 = sum(phase5), phase35 = sum(phase35)) %>% mutate_if(is.numeric, funs(. / 1000000)) %>% mutate_if(is.numeric, round, 2)
+#total
+cadre_harmonise_caf_ipc_total <- cadre_harmonise_caf_ipc %>% group_by(chtype) %>% 
+  summarise(population = sum(population), phase1 = sum(phase1), phase2 = sum(phase2), phase3 = sum(phase3), phase4 = sum(phase4), phase5 = sum(phase5), phase35 = sum(phase35)) %>% mutate(Country = "Total") %>% mutate_if(is.numeric, funs(. / 1000000)) %>% mutate_if(is.numeric, round, 1)
+#put country and total together
+cadre_harmonise_caf_ipc_all <- bind_rows(cadre_harmonise_caf_ipc_country, cadre_harmonise_caf_ipc_total)
+#seperate current from projected
+cadre_harmonise_caf_ipc_current <- cadre_harmonise_caf_ipc_all %>% filter(chtype == "current") %>% select(-chtype)
+cadre_harmonise_caf_ipc_projected <- cadre_harmonise_caf_ipc_all %>% filter(chtype == "projected") %>% select(-chtype)
+
+#make graphs 
+CH_colors = c("phase1" = "#c6ffc7", "phase2" = "#ffe718", "phase3" = "#e88400", "phase4" = "#e02d00", "phase5" = "#5e0803") 
+#long
+cadre_harmonise_caf_ipc_countrylong <- cadre_harmonise_caf_ipc_country %>% select(-population, -phase35) %>% pivot_longer(cols = phase1:phase5, names_to = "phase", "value")
+cadre_harmonise_caf_ipc_currentgraph <- cadre_harmonise_caf_ipc_countrylong %>% filter(chtype == "current") %>% ggplot(aes(x = Country, y = value, fill = phase)) +geom_bar(stat = "identity") +theme_minimal() +theme(axis.text.x = element_text(angle = 90)) +scale_fill_manual(values=CH_colors) +xlab("") +ylab("") +
+      theme(
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank()
+      ) 
+cadre_harmonise_caf_ipc_projectedgraph <- cadre_harmonise_caf_ipc_countrylong %>% filter(chtype == "projected") %>% ggplot(aes(x = Country, y = value, fill = phase)) +geom_bar(stat = "identity") +theme_minimal() +theme(axis.text.x = element_text(angle = 90)) +scale_fill_manual(values=CH_colors) +xlab("") +ylab("")+
+      theme(
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank()
+      ) 
+
+#add CH shapefile
+CH_curr <- read_sf("C:\\RBD_CHIPC_dataprocessing\\data\\geo\\finalized_CHgeofiles\\wca_CHIPC_mar2021_current.gpkg")
+CH_proj <- read_sf("C:\\RBD_CHIPC_dataprocessing\\data\\geo\\finalized_CHgeofiles\\wca_CHIPC_mar2021_projected.gpkg")
+
+#add boundarry of countries
+wca_shp0 <- read_sf("C:\\RBD_CHIPC_dataprocessing\\data\\geo\\finalized_CHgeofiles\\wca_shp0all.gpkg")
+
+#reassign
+pal <-  colorFactor(palette = c("#c6ffc7", "#ffe718", "#e88400","#e02d00"), 
+              levels = c("1", "2", "3", "4"))
+#final phase
+CHmapleaflet_current <- CH_curr %>% leaflet() %>% addPolygons(weight = 0.25, fillOpacity = 0.75,
+                                                       color = ~pal(CH_curr$phase_class),
+                                                       popup = paste("Country:", CH_curr$adm0_name, "<br>",
+                                                                    "Admin1:", CH_curr$adm1_name, "<br>",
+                                                                    "Admin2:", CH_curr$adm2_name, "<br>",
+                                                                    "Phase:", CH_curr$currentmar2021_phase_class, "<br>",
+                                                                    "Total Population:", CH_curr$population, "<br>",
+                                                                    "Phase 1 Population:", CH_curr$phase1, "<br>",
+                                                                    "Phase 2 Population:", CH_curr$phase2, "<br>",
+                                                                    "Phase 3 Population:", CH_curr$phase3, "<br>",
+                                                                    "Phase 4 Population:", CH_curr$phase4, "<br>",
+                                                                    "Phase 5 Population:", CH_curr$phase5, "<br>",
+                                                                    "Phase 3-5 Population:", CH_curr$phase35, "<br>"),
+                                                       highlight = highlightOptions(weight = 3, color = "black", bringToFront = FALSE)) %>% 
+                                                       addLegend("bottomleft", pal = pal, values = ~phase_class,
+            title = "Phase",
+            opacity = 4) %>% addPolylines(data=wca_shp0, color="#000000", weight=2.5) %>%
+  addEasyprint() %>% setView(lat= 13, lng=3, zoom=4)  %>%
+  addEasyButton(easyButton(
+    icon="fa-globe", title="reset to original view",
+    onClick=JS("function(btn, map){ map.setView([13, 3], 4);}")))
+
+CHmapleaflet_projected <- CH_proj %>%  leaflet() %>% addPolygons(weight = 0.25, fillOpacity = 0.75,
+                                                       color = ~pal(CH_proj$phase_class),
+                                                       popup = paste("Country:", CH_proj$adm0_name, "<br>",
+                                                                    "Admin1:", CH_proj$adm1_name, "<br>",
+                                                                    "Admin2:", CH_proj$adm2_name, "<br>",
+                                                                    "Phase:", CH_proj$phase_class, "<br>",
+                                                                    "Total Population:", CH_proj$population, "<br>",
+                                                                    "Phase 1 Population:", CH_proj$phase1, "<br>",
+                                                                    "Phase 2 Population:", CH_proj$phase2, "<br>",
+                                                                    "Phase 3 Population:", CH_proj$phase3, "<br>",
+                                                                    "Phase 4 Population:", CH_proj$phase4, "<br>",
+                                                                    "Phase 5 Population:", CH_proj$phase5, "<br>",
+                                                                    "Phase 3-5 Population:", CH_proj$phase35, "<br>"),
+                                                       highlight = highlightOptions(weight = 3, color = "black", bringToFront = F)) %>% 
+                                                       addLegend("bottomleft", pal = pal, values = ~phase_class,
+            title = "Phase",
+            opacity = 4) %>% addPolylines(data=wca_shp0, color="#000000", weight=2.5) %>%
+  addEasyprint() %>% setView(lat= 13, lng=3, zoom=4)  %>%
+  addEasyButton(easyButton(
+    icon="fa-globe", title="reset to original view",
+    onClick=JS("function(btn, map){ map.setView([13, 3], 4);}")))
+#food consumption
+CHmapleaflet_current_FC <- CH_curr %>% filter(admin0Name != "Central African Republic") %>% leaflet() %>% addPolygons(weight = 0.25, fillOpacity = 0.75,
+                                                       color = ~pal(CH_curr$foodconsumption_phase),
+                                                       popup = paste("Country:", CH_curr$adm0_name, "<br>",
+                                                                    "Admin1:", CH_curr$adm1_name, "<br>",
+                                                                    "Admin2:", CH_curr$adm2_name, "<br>",
+                                                                    "Phase:", CH_curr$currentmar2021_foodconsumption_phase, "<br>"),
+                                                       highlight = highlightOptions(weight = 3, color = "black", bringToFront = FALSE)) %>% 
+                                                       addLegend("bottomleft", pal = pal, values = ~foodconsumption_phase,
+            title = "Phase",
+            opacity = 4) %>% addPolylines(data=wca_shp0, color="#000000", weight=2.5) %>%
+  addEasyprint() %>% setView(lat= 13, lng=3, zoom=4)  %>%
+  addEasyButton(easyButton(
+    icon="fa-globe", title="reset to original view",
+    onClick=JS("function(btn, map){ map.setView([13, 3], 4);}")))
+
+CHmapleaflet_projected_FC <- CH_proj %>% filter(admin0Name != "Central African Republic") %>% leaflet() %>% addPolygons(weight = 0.25, fillOpacity = 0.75,
+                                                       color = ~pal(CH_proj$foodconsumption_phase),
+                                                       popup = paste("Country:", CH_proj$adm0_name, "<br>",
+                                                                    "Admin1:", CH_proj$adm1_name, "<br>",
+                                                                    "Admin2:", CH_proj$adm2_name, "<br>",
+                                                                    "Phase:", CH_proj$foodconsumption_phase, "<br>"),
+                                                       highlight = highlightOptions(weight = 3, color = "black", bringToFront = FALSE)) %>% 
+                                                       addLegend("bottomleft", pal = pal, values = ~foodconsumption_phase,
+            title = "Phase",
+            opacity = 4) %>% addPolylines(data=wca_shp0, color="#000000", weight=2.5) %>%
+  addEasyprint() %>% setView(lat= 13, lng=3, zoom=4)  %>%
+  addEasyButton(easyButton(
+    icon="fa-globe", title="reset to original view",
+    onClick=JS("function(btn, map){ map.setView([13, 3], 4);}")))
+#livelihoods
+CHmapleaflet_current_LH <- CH_curr %>% filter(admin0Name != "Central African Republic") %>% leaflet() %>% addPolygons(weight = 0.25, fillOpacity = 0.75,
+                                                       color = ~pal(CH_curr$livelihoods_phase),
+                                                       popup = paste("Country:", CH_curr$adm0_name, "<br>",
+                                                                    "Admin1:", CH_curr$adm1_name, "<br>",
+                                                                    "Admin2:", CH_curr$adm2_name, "<br>",
+                                                                    "Phase:", CH_curr$livelihoods_phase, "<br>"),
+                                                       highlight = highlightOptions(weight = 3, color = "black", bringToFront = FALSE)) %>% 
+                                                       addLegend("bottomleft", pal = pal, values = ~livelihoods_phase,
+            title = "Phase",
+            opacity = 4) %>% addPolylines(data=wca_shp0, color="#000000", weight=2.5) %>%
+  addEasyprint() %>% setView(lat= 13, lng=3, zoom=4)  %>%
+  addEasyButton(easyButton(
+    icon="fa-globe", title="reset to original view",
+    onClick=JS("function(btn, map){ map.setView([13, 3], 4);}")))
+
+CHmapleaflet_projected_LH <- CH_proj %>% filter(admin0Name != "Central African Republic") %>% leaflet() %>% addPolygons(weight = 0.25, fillOpacity = 0.75,
+                                                       color = ~pal(CH_proj$livelihoods_phase),
+                                                       popup = paste("Country:", CH_proj$adm0_name, "<br>",
+                                                                    "Admin1:", CH_proj$adm1_name, "<br>",
+                                                                    "Admin2:", CH_proj$adm2_name, "<br>",
+                                                                    "Phase:", CH_proj$livelihoods_phase, "<br>"),
+                                                       highlight = highlightOptions(weight = 3, color = "black", bringToFront = FALSE)) %>% 
+                                                       addLegend("bottomleft", pal = pal, values = ~livelihoods_phase,
+            title = "Phase",
+            opacity = 4) %>% addPolylines(data=wca_shp0, color="#000000", weight=2.5) %>%
+  addEasyprint() %>% setView(lat= 13, lng=3, zoom=4)  %>%
+  addEasyButton(easyButton(
+    icon="fa-globe", title="reset to original view",
+    onClick=JS("function(btn, map){ map.setView([13, 3], 4);}")))
+
+#nutrition
+CHmapleaflet_current_Nut <- CH_curr %>% filter(admin0Name != "Central African Republic") %>% leaflet() %>% addPolygons(weight = 0.25, fillOpacity = 0.75,
+                                                       color = ~pal(CH_curr$nutrition_phase),
+                                                       popup = paste("Country:", CH_curr$adm0_name, "<br>",
+                                                                    "Admin1:", CH_curr$adm1_name, "<br>",
+                                                                    "Admin2:", CH_curr$adm2_name, "<br>",
+                                                                    "Phase:", CH_curr$currentmar2021_nutrition_phase, "<br>"),
+                                                       highlight = highlightOptions(weight = 3, color = "black", bringToFront = FALSE)) %>% 
+                                                       addLegend("bottomleft", pal = pal, values = ~nutrition_phase,
+            title = "Phase",
+            opacity = 4) %>% addPolylines(data=wca_shp0, color="#000000", weight=2.5) %>%
+  addEasyprint() %>% setView(lat= 13, lng=3, zoom=4)  %>%
+  addEasyButton(easyButton(
+    icon="fa-globe", title="reset to original view",
+    onClick=JS("function(btn, map){ map.setView([13, 3], 4);}")))
+
+CHmapleaflet_projected_Nut <- CH_proj %>% filter(admin0Name != "Central African Republic") %>% leaflet() %>% addPolygons(weight = 0.25, fillOpacity = 0.75,
+                                                       color = ~pal(CH_proj$projectedmar2021_nutrition_phase),
+                                                       popup = paste("Country:", CH_proj$adm0_name, "<br>",
+                                                                    "Admin1:", CH_proj$adm1_name, "<br>",
+                                                                    "Admin2:", CH_proj$adm2_name, "<br>",
+                                                                    "Phase:", CH_proj$projectedmar2021_nutrition_phase, "<br>"),
+                                                       highlight = highlightOptions(weight = 3, color = "black", bringToFront = FALSE)) %>% 
+                                                       addLegend("bottomleft", pal = pal, values = ~nutrition_phase,
+            title = "Phase",
+            opacity = 4) %>% addPolylines(data=wca_shp0, color="#000000", weight=2.5) %>%
+  addEasyprint() %>% setView(lat= 13, lng=3, zoom=4)  %>%
+  addEasyButton(easyButton(
+    icon="fa-globe", title="reset to original view",
+    onClick=JS("function(btn, map){ map.setView([13, 3], 4);}")))
+
+#mortality
+CHmapleaflet_current_Mort <- CH_curr %>% filter(admin0Name != "Central African Republic") %>% leaflet() %>% addPolygons(weight = 0.25, fillOpacity = 0.75,
+                                                       color = ~pal(CH_curr$mortality_phase),
+                                                       popup = paste("Country:", CH_curr$adm0_name, "<br>",
+                                                                    "Admin1:", CH_curr$adm1_name, "<br>",
+                                                                    "Admin2:", CH_curr$adm2_name, "<br>",
+                                                                    "Phase:", CH_curr$mortality_phase, "<br>"),
+                                                       highlight = highlightOptions(weight = 3, color = "black", bringToFront = FALSE)) %>% 
+                                                       addLegend("bottomleft", pal = pal, values = ~mortality_phase,
+            title = "Phase",
+            opacity = 4) %>% addPolylines(data=wca_shp0, color="#000000", weight=2.5) %>%
+  addEasyprint() %>% setView(lat= 13, lng=3, zoom=4)  %>%
+  addEasyButton(easyButton(
+    icon="fa-globe", title="reset to original view",
+    onClick=JS("function(btn, map){ map.setView([13, 3], 4);}")))
+
+CHmapleaflet_projected_Mort <- CH_proj %>% filter(admin0Name != "Central African Republic") %>% leaflet() %>% addPolygons(weight = 0.25, fillOpacity = 0.75,
+                                                       color = ~pal(CH_proj$mortality_phase),
+                                                       popup = paste("Country:", CH_proj$adm0_name, "<br>",
+                                                                    "Admin1:", CH_proj$adm1_name, "<br>",
+                                                                    "Admin2:", CH_proj$adm2_name, "<br>",
+                                                                    "Phase:", CH_proj$projectedmar2021_mortality_phase, "<br>"),
+                                                       highlight = highlightOptions(weight = 3, color = "black", bringToFront = FALSE)) %>% 
+                                                       addLegend("bottomleft", pal = pal, values = ~mortality_phase,
+            title = "Phase",
+            opacity = 4) %>% addPolylines(data=wca_shp0, color="#000000", weight=2.5) %>%
+  addEasyprint() %>% setView(lat= 13, lng=3, zoom=4)  %>%
+  addEasyButton(easyButton(
+    icon="fa-globe", title="reset to original view",
+    onClick=JS("function(btn, map){ map.setView([13, 3], 4);}")))
+
+
+
+
+#for making trends since 2017
+#only since 2017 and most relevant period 
+cadre_harmonise_caf_since2017 <- cadre_harmonise_caf_ipc_orig %>% filter(exercise_year >= 2017)  %>% mutate_at(vars(population:phase35), replace_na, 0) %>% filter(usethisperiod == "Y")
+
+#trends of phase35 in millions
+#create tables for graphing
+cadre_harmonise_caf_since2017_ph35 <- cadre_harmonise_caf_since2017 %>% group_by(adm0_name, reference_label, reference_year) %>% summarise(phase35 = sum(phase35)) %>% mutate(phase35 = round((phase35 / 1000000),1)) 
+graph_sahel <- cadre_harmonise_caf_since2017_ph35 %>% filter(adm0_name %in% c(
+  "Burkina Faso","Cameroon","Central African Republic", "Chad","Mali","Mauritania","Niger","Nigeria","Senegal")) %>% ggplot(aes(x = reference_year, y = phase35, group = adm0_name, color = adm0_name)) +geom_line() +facet_grid(. ~ reference_label) +theme_minimal() +theme(axis.title.x = element_blank()) +labs(color='Country') 
+graph_coastal <- cadre_harmonise_caf_since2017_ph35 %>% filter(adm0_name %in% c(
+  "Benin","Cabo Verde","Cote d'Ivoire","Gambia","Ghana","Guinea","Guinea-Bissau","Liberia","Sierra Leone","Togo")) %>% ggplot(aes(x = reference_year, y = phase35, group = adm0_name, color = adm0_name)) +geom_line() +facet_grid(. ~ reference_label) +theme_minimal() +theme(axis.title.x = element_blank()) +labs(color='Country') 
+#create tables of % phase35 of analyzed population
+cadre_harmonise_caf_since2017 <- cadre_harmonise_caf_since2017 %>% mutate(totalpop = phase1+phase2+phase3+phase4+phase5)
+cadre_harmonise_caf_since2017perc <- cadre_harmonise_caf_since2017 %>% group_by(adm0_name, reference_label, reference_year) %>% summarise(phase35 = sum(phase35), totalpop = sum(totalpop)) %>% mutate(percphase35 = round((phase35 / totalpop) * 100),1)
+graph_sahelperc <- cadre_harmonise_caf_since2017perc %>% filter(adm0_name %in% c(
+  "Burkina Faso","Cameroon","Central African Republic", "Chad","Mali","Mauritania","Niger","Nigeria","Senegal")) %>% ggplot(aes(x = reference_year, y = percphase35, group = adm0_name, color = adm0_name)) +geom_line() +facet_grid(. ~ reference_label) +theme_minimal() +theme(axis.title.x = element_blank()) +labs(color='Country') 
+graph_coastalperc <- cadre_harmonise_caf_since2017perc %>% filter(adm0_name %in% c(
+  "Benin","Cabo Verde","Cote d'Ivoire","Gambia","Ghana","Guinea","Guinea-Bissau","Liberia","Sierra Leone","Togo")) %>% ggplot(aes(x = reference_year, y = percphase35, group = adm0_name, color = adm0_name)) +geom_line() +facet_grid(. ~ reference_label) +theme_minimal() +theme(axis.title.x = element_blank()) +labs(color='Country') 
+
+
+
+
+```
+
+Map of Current & Projected Phases {data-navmenu="Maps"}
+=====================================
+
+Row 
+-------------------------------------
+
+### Phasing of Areas: Current (January - May 2021)  
+
+```{r results="asis"}
+cat("
+<style>
+.leaflet-container {
+    background: #FFF;
+}
+</style>
+")
+CHmapleaflet_current
+```  
+
+> Click on polygon area for more information
+
+Row 
+-------------------------------------
+
+### Phasing of Areas:  Projected (June - August 2021)
+
+```{r results="asis"}
+cat("
+<style>
+.leaflet-container {
+    background: #FFF;
+}
+</style>
+")
+CHmapleaflet_projected
+```  
+
+
+Population Estimates (table & graph) {data-navmenu="Figures"}
+=====================================
+
+Row 
+-------------------------------------
+
+### Population Estimates (in millions) by Phase: March 2021 Exercise (Current: Jan.-May. 2021)  
+
+```{r}
+ggplotly(cadre_harmonise_caf_ipc_currentgraph)
+```  
+  
+> Hover cursor over graph for more information; select phases in legend to filter
+
+### Population Estimates (in millions) by Phase: March 2021 Exercise (Current: Jan.- May. 2021)  
+
+```{r}
+datatable(cadre_harmonise_caf_ipc_current,  extensions = 'Buttons', options = list(pageLength = 18, dom = "Bft",
+    buttons = c('copy', 'csv', 'excel'))) %>%
+  formatStyle(
+    0,
+    target = "row",
+    fontWeight = styleEqual(18, "bold")
+  )
+
+```
+
+Row 
+-------------------------------------
+
+
+### Population Estimates (in millions) by Phase: March 2021 Exercise (Projected: Jun. - Aug. 2021) 
+
+```{r}
+ggplotly(cadre_harmonise_caf_ipc_projectedgraph)
+``` 
+
+> Hover cursor over graph for more information; select phases in legend to filter
+
+### Population Estimates (in millions) by Phase: March 2021 Exercise (Projected: Jun. - Aug. 2021)
+    
+```{r}
+datatable(cadre_harmonise_caf_ipc_projected,  extensions = 'Buttons', options = list(pageLength = 19, dom = "Bft",
+    buttons = c('copy', 'csv', 'excel'))) %>%
+  formatStyle(
+    0,
+    target = "row",
+    fontWeight = styleEqual(19, "bold")
+  )
+```
+
+
+Phase 3-5 Trends (population) {data-navmenu="Trends"}
+=====================================
+
+Row 
+-------------------------------------
+
+### Trends of the number of people in phas3 - 5 (in millions) by Reference Period: Sahel5 + Cameroon, C.A.R. and Nigeria
+
+```{r}
+ggplotly(graph_sahel)
+``` 
+
+> Hover cursor over graph for more information; select countries in legend to filter
+
+### Trends of the number of people in phas3 - 5 (in millions) by Reference Period: Coastal Countries
+
+```{r}
+ggplotly(graph_coastal)
+``` 
+
+> Hover cursor over graph for more information; select countries in legend to filter
+
+Phase 3-5 Trends (percent of population) {data-navmenu="Trends"}
+=====================================
+
+Row 
+-------------------------------------
+
+### Trends of the percent of people in phase3 - 5 out of total analyzed population by Reference Period: Sahel5 + Cameroon, C.A.R. and Nigeria
+
+```{r}
+ggplotly(graph_sahelperc)
+``` 
+
+> Hover cursor over graph for more information; select countries in legend to filter
+
+### Trends of the percent of people in phase3 - 5 out of total analyzed population by Reference Period: Coastal Countries
+
+```{r}
+ggplotly(graph_coastalperc)
+``` 
+
+> Hover cursor over graph for more information; select countries in legend to filter

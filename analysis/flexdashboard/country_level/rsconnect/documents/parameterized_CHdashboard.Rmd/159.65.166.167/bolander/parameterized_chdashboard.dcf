@@ -1,0 +1,13 @@
+name: parameterized_chdashboard
+title: parameterized_CHdashboard
+username: bolander
+account: bolander
+server: 159.65.166.167
+hostUrl: http://159.65.166.167/__api__
+appId: 35
+bundleId: 44
+url: http://159.65.166.167/content/1fd861ad-709f-4ef0-83e1-4503adee0213/
+when: 1621434816.993
+asMultiple: TRUE
+asStatic: FALSE
+ignoredFiles: CameroonCHdashboard.Rmd|tester.Rmd

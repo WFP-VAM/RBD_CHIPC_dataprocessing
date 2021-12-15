@@ -1,0 +1,189 @@
+---
+title: "Mapping of Cadre Harmonisé Phases and Outcomes"
+subtitle: "using November 2021 Cadre Harmonisé data"
+author: "WFP RBD RAM"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: 
+  powerpoint_presentation:
+    reference_doc: WFPVAMtemplate.pptx
+    fig_width: 12
+    fig_height: 10
+always_allow_html: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
+
+library(readxl)
+library(tidyverse)
+library(extrafont)
+
+#create theme
+#make x and y axis blank, put legend in bottom
+theme_vamgraphs <- function(){ 
+    font <- "Open Sans"   #assign font family up front
+    theme_minimal() %+replace%    #replace elements we want to change
+    theme(
+      plot.title = element_text(family = "Open Sans SemiBold", color = "black", size = 30, margin=margin(0,0,30,0)),
+      strip.text = element_text(family = "Open Sans SemiBold", color = "black", size = 18, margin=margin(0,0,30,0)),
+      #grid elements
+      panel.grid.major = element_blank(),    #strip major gridlines
+      panel.grid.minor = element_blank(),    #strip minor gridlines
+            axis.ticks = element_blank(),          #strip axis ticks
+      axis.text.x = element_text(family = "Open Sans", color = "black", size = 10, angle = 90),
+      axis.text.y =  element_text(family = "Open Sans", color = "black", size = 10),
+      legend.position = "bottom",
+      legend.title = element_blank(),
+      legend.text = element_text(family = "Open Sans SemiBold", color = "black", size = 8),
+      panel.spacing = unit(1, "cm"),
+      panel.margin = unit(2, "lines"))
+}
+
+
+
+library(sf)
+library(rmapshaper)
+library(readxl)
+library(mapview)
+
+#add CH shapefiles
+
+wca_CHIPC_nov2021_current <- read_sf("C:\\RBD_CHIPC_dataprocessing\\data\\geo\\finalized_CHgeofiles\\wca_CHIPC_nov2021_current_nov2021_simple.geojson")
+wca_CHIPC_nov2021_projected <- read_sf("C:\\RBD_CHIPC_dataprocessing\\data\\geo\\finalized_CHgeofiles\\wca_CHIPC_nov2021_projected_jun2022_simple.geojson")
+
+#add boundarry of countries
+wca_shp0all <- read_sf("C:\\RBD_CHIPC_dataprocessing\\data\\geo\\finalized_CHgeofiles\\wca_shp0all.geojson")
+
+#recode NA as "NA" so we can set the color to white in map
+wca_CHIPC_nov2021_current <- wca_CHIPC_nov2021_current %>% mutate_at(vars(foodconsumption_phase:mortality_phase,FCG_finalphase,HDDS_finalphase,HHS_finalphase,rCSI_finalphase,LhHCSCat_finalphase), ~replace_na(.x, "NA"))
+
+
+wca_CHIPC_nov2021_projected <- wca_CHIPC_nov2021_projected %>% mutate(across(foodconsumption_phase:mortality_phase, ~replace_na(.x, "NA"))
+  )
+
+
+
+
+
+
+
+#plot parameters
+#CH color codes
+CH_colors = c("1" = "#c6ffc7", "2" = "#ffe718", "3" = "#e88400", "4" = "#e02d00", "5" = "#5e0803", "NA" = "#ffffff")
+
+current_period <- c("October - December 2021 (current): ")
+projected_period <- c("June - September 2022 (projected): ")
+final_phase <- c("final phasing")
+fc_phase <- c("food consumption phasing")
+lh_phase <- c("livelihood phasing")
+nut_phase <- c("nutrition phasing")
+mort_phase <- c("mortality phasing")
+
+
+##this should be a function later
+
+#finalphases
+mapcurrentnov2021_phase_class <- wca_CHIPC_nov2021_current %>% ggplot() +geom_sf(mapping = aes(fill = as.factor(phase_class)), color = NA) +theme_void() +coord_sf(datum=NA) +scale_fill_manual(values = CH_colors) +geom_sf(data=wca_shp0all, fill=NA) +labs(title = current_period, subtitle = final_phase, fill = "phasing") 
+mapprojectednov2021_phase_class <- wca_CHIPC_nov2021_projected %>% ggplot() +geom_sf(mapping = aes(fill = as.factor(phase_class)), color = NA) +theme_void() +coord_sf(datum=NA) +scale_fill_manual(values = CH_colors) +geom_sf(data=wca_shp0all, fill=NA) +labs(title = projected_period, subtitle = final_phase, fill = "phasing") 
+
+#fc
+mapcurrentnov2021_foodconsumption_phase <- wca_CHIPC_nov2021_current %>% ggplot() +geom_sf(mapping = aes(fill = as.factor(foodconsumption_phase)), color = NA) +theme_void() +coord_sf(datum=NA) +scale_fill_manual(values = CH_colors) +geom_sf(data=wca_shp0all, fill=NA) +labs(title = current_period, subtitle = fc_phase, fill = "phasing")
+mapprojectednov2021_foodconsumption_phase <- wca_CHIPC_nov2021_projected %>% ggplot() +geom_sf(mapping = aes(fill = as.factor(foodconsumption_phase)), color = NA) +theme_void() +coord_sf(datum=NA)  +scale_fill_manual(values = CH_colors) +geom_sf(data=wca_shp0all, fill=NA) +labs(title = projected_period, subtitle = fc_phase, fill = "phasing") 
+
+#livelihoods
+mapcurrentnov2021_livelihoods_phase <- wca_CHIPC_nov2021_current %>% ggplot() +geom_sf(mapping = aes(fill = as.factor(livelihoods_phase)), color = NA) +theme_void() +coord_sf(datum=NA)  +scale_fill_manual(values = CH_colors)  +geom_sf(data=wca_shp0all, fill=NA) +labs(title= current_period, subtitle = lh_phase, fill = "phasing")
+mapprojectednov2021_livelihoods_phase <- wca_CHIPC_nov2021_projected %>% ggplot() +geom_sf(mapping = aes(fill = as.factor(livelihoods_phase)), color = NA) +theme_void() +coord_sf(datum=NA)   +scale_fill_manual(values = CH_colors)  +geom_sf(data=wca_shp0all, fill=NA) +labs(title= projected_period, subtitle = lh_phase, fill = "phasing")
+
+#nutrition
+mapcurrentnov2021_nutrition_phase <- wca_CHIPC_nov2021_current  %>% ggplot() +geom_sf(mapping = aes(fill = as.factor(nutrition_phase)), color = NA) +theme_void() +coord_sf(datum=NA)  +scale_fill_manual(values = CH_colors)  +geom_sf(data=wca_shp0all,  fill=NA) +labs(title= current_period, subtitle = nut_phase, fill = "phasing")
+mapprojectednov2021_nutrition_phase <-  wca_CHIPC_nov2021_projected %>% ggplot() +geom_sf(mapping = aes(fill = as.factor(nutrition_phase)), color = NA) +theme_void() +coord_sf(datum=NA) +scale_fill_manual(values = CH_colors) +geom_sf(data=wca_shp0all,  fill=NA) +labs(title= projected_period, subtitle = nut_phase, fill = "phasing")
+
+#mortality
+mapcurrentnov2021_mortality_phase <- wca_CHIPC_nov2021_current %>% ggplot() +geom_sf(mapping = aes(fill = as.factor(mortality_phase)), color = NA) +theme_void() +coord_sf(datum=NA)  +scale_fill_manual(values = CH_colors) +geom_sf(data=wca_shp0all, fill=NA) +labs(title = current_period, subtitle = mort_phase, fill = "phasing") 
+mapprojectednov2021_mortality_phase <- wca_CHIPC_nov2021_projected %>% ggplot() +geom_sf(mapping = aes(fill = as.factor(mortality_phase)), color = NA) +theme_void() +coord_sf(datum=NA)  +scale_fill_manual(values = CH_colors) +geom_sf(data=wca_shp0all, fill=NA) +labs(title = projected_period, subtitle = mort_phase, fill = "phasing") 
+
+
+#fcg 
+mapcurrentnov2021_fcg_phase <- wca_CHIPC_nov2021_current %>% ggplot() +geom_sf(mapping = aes(fill = as.factor(FCG_finalphase)), color = NA) +theme_void() +coord_sf(datum=NA)  +scale_fill_manual(values = CH_colors) +geom_sf(data=wca_shp0all, fill=NA) +labs(title = current_period, subtitle = "Food Consumption Groups", fill = "phasing") 
+
+#hdds
+mapcurrentnov2021_hdds_phase <- wca_CHIPC_nov2021_current %>% ggplot() +geom_sf(mapping = aes(fill = as.factor(HDDS_finalphase)), color = NA) +theme_void() +coord_sf(datum=NA)  +scale_fill_manual(values = CH_colors) +geom_sf(data=wca_shp0all, fill=NA) +labs(title = current_period, subtitle = "Household Dietary Diversity Score (HDDS)", fill = "phasing") 
+
+#hhhs
+mapcurrentnov2021_hhs_phase <- wca_CHIPC_nov2021_current %>% ggplot() +geom_sf(mapping = aes(fill = as.factor(HHS_finalphase)), color = NA) +theme_void() +coord_sf(datum=NA)  +scale_fill_manual(values = CH_colors) +geom_sf(data=wca_shp0all, fill=NA) +labs(title = current_period, subtitle = "Household Hunger Scale (HHS)", fill = "phasing") 
+
+#rcsi
+mapcurrentnov2021_rcsi_phase <- wca_CHIPC_nov2021_current %>% ggplot() +geom_sf(mapping = aes(fill = as.factor(rCSI_finalphase)), color = NA) +theme_void() +coord_sf(datum=NA)  +scale_fill_manual(values = CH_colors) +geom_sf(data=wca_shp0all, fill=NA) +labs(title = current_period, subtitle = "reduced Coping Strategy Index (rCSI)", fill = "phasing") 
+
+#lhcs
+mapcurrentnov2021_lhcs_phase <- wca_CHIPC_nov2021_current %>% ggplot() +geom_sf(mapping = aes(fill = as.factor(LhHCSCat_finalphase)), color = NA) +theme_void() +coord_sf(datum=NA)  +scale_fill_manual(values = CH_colors) +geom_sf(data=wca_shp0all, fill=NA) +labs(title = current_period, subtitle = "Livelihood Coping Strategies", fill = "phasing") 
+
+
+```
+
+
+```{r}
+mapcurrentnov2021_phase_class
+```
+
+```{r}
+mapprojectednov2021_phase_class
+```
+
+```{r}
+mapcurrentnov2021_foodconsumption_phase
+```
+
+```{r}
+mapprojectednov2021_foodconsumption_phase
+```
+
+```{r}
+mapcurrentnov2021_livelihoods_phase
+```
+
+```{r}
+mapprojectednov2021_livelihoods_phase
+```
+
+```{r}
+mapcurrentnov2021_nutrition_phase
+```
+
+```{r}
+mapprojectednov2021_nutrition_phase
+```
+
+```{r}
+mapcurrentnov2021_mortality_phase
+```
+
+```{r}
+mapprojectednov2021_mortality_phase
+```
+
+
+```{r}
+mapcurrentnov2021_fcg_phase
+```
+
+
+```{r}
+mapcurrentnov2021_hdds_phase
+```
+
+
+```{r}
+mapcurrentnov2021_hhs_phase
+```
+
+
+```{r}
+mapcurrentnov2021_rcsi_phase
+```
+
+
+```{r}
+mapcurrentnov2021_lhcs_phase
+```
+
